@@ -95,8 +95,6 @@ in
         kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
       };
       hardware.enable = true; # enable hardware module
-      services.gnome.gnome-keyring.enable = true;
-      security.pam.services.sddm.enableGnomeKeyring = true;
       network.enable = true; # enable network module
       nix.enable = true; # enable nix module
       sddm = {
@@ -119,5 +117,6 @@ in
     ];
     shell = pkgs.zsh; 
   };
+
   system.stateVersion = "25.05";
 }

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./example.nix - add your modules here
+  ./monitors.nix
   ];
 
   # home-manager options go here
@@ -44,7 +44,9 @@
         email = "zander@polsons.info"; # git user email eg "john.doe@example.com"
       };
       hyde.enable = true; # enable hyde module
-      hyprland.enable = true; # enable hyprland module
+      hyprland = {
+          enable = true;
+        };
       lockscreen = {
         enable = true; # enable lockscreen module
         hyprlock = true; # enable hyprlock lockscreen
