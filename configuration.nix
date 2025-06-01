@@ -95,6 +95,8 @@ in
         kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
       };
       hardware.enable = true; # enable hardware module
+      services.gnome.gnome-keyring.enable = true;
+      security.pam.services.sddm.enableGnomeKeyring = true;
       network.enable = true; # enable network module
       nix.enable = true; # enable nix module
       sddm = {
@@ -112,10 +114,10 @@ in
       "wheel" # For sudo access
       "networkmanager" # For network management
       "video" # For display/graphics access
-      # Add other groups as needed
+      "dialout"
+      "sudo"
     ];
-    shell = pkgs.zsh; # Change if you prefer a different shell
+    shell = pkgs.zsh; 
   };
-
   system.stateVersion = "25.05";
 }

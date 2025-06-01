@@ -28,7 +28,7 @@
           wallbash = true; # enable wallbash extension for vscode
         };
         vim = true; # enable vim module
-        default = "code"; # default text editor
+        default = "neovim"; # default text editor
       };
       fastfetch.enable = true; # fastfetch configuration
       firefox = {
@@ -40,8 +40,8 @@
       };
       git = {
         enable = true; # enable git module
-        name = null; # git user name eg "John Doe"
-        email = null; # git user email eg "john.doe@example.com"
+        name = "gitm3"; # git user name eg "John Doe"
+        email = "zander@polsons.info"; # git user email eg "john.doe@example.com"
       };
       hyde.enable = true; # enable hyde module
       hyprland.enable = true; # enable hyprland module
@@ -69,10 +69,10 @@
         pokego.enable = false; # enable Pokemon ASCII art scripts
       };
       social = {
-        enable = true; # enable social module
-        discord.enable = true; # enable discord module
-        webcord.enable = true; # enable webcord module
-        vesktop.enable = true; # enable vesktop module
+        enable = false; # enable social module
+        # discord.enable = false; # enable discord module
+        # webcord.enable = false; # enable webcord module
+        # vesktop.enable = false; # enable vesktop module
       };
       spotify.enable = true; # enable spotify module
       swww.enable = true; # enable swww wallpaper daemon
@@ -89,6 +89,14 @@
         themes = [
           "Catppuccin Mocha"
           "Catppuccin Latte"
+          "Decay Green"
+          "Tokyo Night"
+          "Graphite Mono"
+          "Frosted Glass"
+          "Moonlight"
+          "Nordic Blue"
+          "One Dark"
+          "Gruvbox Retro"
         ]; # default enabled themes, full list in https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
       };
       waybar.enable = true; # enable waybar module
