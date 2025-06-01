@@ -28,7 +28,7 @@
           wallbash = true; # enable wallbash extension for vscode
         };
         vim = true; # enable vim module
-        default = "neovim"; # default text editor
+        default = "nvim"; # default text editor
       };
       fastfetch.enable = true; # fastfetch configuration
       firefox = {
