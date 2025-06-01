@@ -4,6 +4,7 @@
   imports = [
   ./keybinds.nix
   ./monitors.nix
+  ./programs.nix
   ];
 
   # home-manager options go here
