@@ -41,9 +41,26 @@
         useExtensions = true; # if useHydeConfig is true, install hyde firefox extensions
       };
       git = {
-        enable = true; # enable git module
-        name = "gitm3"; # git user name eg "John Doe"
-        email = "zander@polsons.info"; # git user email eg "john.doe@example.com"
+        enable = true; 
+        name = "gitm3"; 
+        email = "zander@polsons.info"; 
+        extraConfig = {
+      # === Git Credential Manager (GCM) ===
+        credential = {
+          helper = "manager";
+          credentialStore = "secretservice";  # Uses GNOME Keyring
+          autoDetectTimeout = 30;
+        };
+        
+        "credential \"https://github.com\"" = {
+          provider = "github";
+          helper = "manager";
+        };
+        # === Git settings for better OAuth experience ===
+        init.defaultBranch = "main";
+        pull.rebase = false;
+        push.autoSetupRemote = true;
+        };
       };
       hyde.enable = true; # enable hyde module
       hyprland = {
