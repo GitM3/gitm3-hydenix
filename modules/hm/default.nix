@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -8,10 +8,32 @@
   ];
 
   # home-manager options go here
-  home.packages = [
+  home.packages = with pkgs; [
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
+    git-credential-manager
   ];
+        programs.git = {
+        enable = true; 
+        extraConfig = {
+      # === Git Credential Manager (GCM) ===
+        credential = {
+          helper = "manager";
+          credentialStore = "secretservice";  # Uses GNOME Keyring
+          autoDetectTimeout = 30;
+        };
+        
+        "credential \"https://github.com\"" = {
+          provider = "github";
+          helper = "manager";
+        };
+        # === Git settings for better OAuth experience ===
+        init.defaultBranch = "main";
+        pull.rebase = false;
+        push.autoSetupRemote = true;
+        };
+      };
+
 
   # hydenix home-manager options go here
   hydenix.hm = {
@@ -39,28 +61,6 @@
         useUserChrome = true; # if useHydeConfig is true, apply hyde userChrome CSS customizations
         useUserJs = true; # if useHydeConfig is true, apply hyde user.js preferences
         useExtensions = true; # if useHydeConfig is true, install hyde firefox extensions
-      };
-      git = {
-        enable = true; 
-        name = "gitm3"; 
-        email = "zander@polsons.info"; 
-        extraConfig = {
-      # === Git Credential Manager (GCM) ===
-        credential = {
-          helper = "manager";
-          credentialStore = "secretservice";  # Uses GNOME Keyring
-          autoDetectTimeout = 30;
-        };
-        
-        "credential \"https://github.com\"" = {
-          provider = "github";
-          helper = "manager";
-        };
-        # === Git settings for better OAuth experience ===
-        init.defaultBranch = "main";
-        pull.rebase = false;
-        push.autoSetupRemote = true;
-        };
       };
       hyde.enable = true; # enable hyde module
       hyprland = {
