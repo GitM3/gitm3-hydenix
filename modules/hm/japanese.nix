@@ -13,16 +13,4 @@
     ];
     fcitx5.waylandFrontend = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-  ];
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-emoji
-    ];
-  };
 }

@@ -25,12 +25,10 @@ in {
 			chmod = "${yazi-plugins}/chmod.yazi";
 			diff = "${yazi-plugins}/diff.yazi";
 			git = "${yazi-plugins}/git.yazi";
-			full-border = "${yazi-plugins}/full-border.yazi";
 			toggle-pane = "${yazi-plugins}/toggle-pane.yazi";
 		};
 
 		initLua = ''
-			require("full-border"):setup()
 		'';
 
 		keymap = {

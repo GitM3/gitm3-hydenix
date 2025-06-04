@@ -191,6 +191,11 @@
       bindd = $mainMod Alt, 8, $d move to workspace 8 (silent), movetoworkspacesilent, 8
       bindd = $mainMod Alt, 9, $d move to workspace 9 (silent), movetoworkspacesilent, 9
       bindd = $mainMod Alt, 0, $d move to workspace 10 (silent), movetoworkspacesilent, 10
+      
+      # FCITX stuff 
+      $d=[$wm|Input Method]
+      bindd = Control, space, $d toggle input method, exec, fcitx5-remote -t
+      bindd = $mainMod Shift, I, $d fcitx5 config tool, exec, fcitx5-configtool
 
       $d=#! unset the group name
     '';

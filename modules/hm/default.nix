@@ -6,6 +6,7 @@
   ./monitors.nix
   ./programs.nix
   ./yazi.nix
+  ./hypr-usrprefs.nix
   ];
 
   # home-manager options go here
@@ -33,13 +34,6 @@
         pull.rebase = false;
         push.autoSetupRemote = true;
         };
-      };
-      home.sessionVariables = {
-        GTK_IM_MODULE = "fcitx";
-        QT_IM_MODULE = "fcitx";
-        XMODIFIERS = "@im=fcitx";
-        INPUT_METHOD = "fcitx";
-        GLFW_IM_MODULE = "ibus"; # For some applications
       };
 
   # hydenix home-manager options go here
@@ -130,6 +124,5 @@
       waybar.enable = true; # enable waybar module
       wlogout.enable = true; # enable wlogout module
       xdg.enable = true; # enable xdg module
-};
   };
 }
