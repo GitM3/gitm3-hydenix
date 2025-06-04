@@ -107,7 +107,7 @@
       };
       theme = {
         enable = true; # enable theme module
-        active = "Catppuccin Mocha"; # active theme name
+        active = "Decay Green"; # active theme name
         themes = [
           "Catppuccin Mocha"
           "Catppuccin Latte"
