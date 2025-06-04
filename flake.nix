@@ -33,6 +33,7 @@
           inherit inputs;
         };
         modules = [
+	   ./modules/system/japanese.nix
           ./configuration.nix
         ];
       };

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./japanese.nix
+#    ./japanese.nix
   ];
 
   environment.systemPackages = [
