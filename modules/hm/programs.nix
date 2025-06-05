@@ -7,6 +7,9 @@
     zellij
     lazygit
     lazydocker
+    git-graph
+    zathura
+    adobe-reader
   ];
 }
 

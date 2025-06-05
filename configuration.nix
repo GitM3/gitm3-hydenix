@@ -12,8 +12,10 @@ let
     overlays = [
       inputs.hydenix.lib.overlays
       (final: prev: {
-        userPkgs = import inputs.nixpkgs {
-          config.allowUnfree = true;
+        userPkgs = import inputs.nixpkgs.config {
+	  	allowUnfree = true;
+  		permittedInsecurePackages = [
+               		"adobe-reader-9.5.5" ];
         };
       })
     ];
@@ -23,7 +25,6 @@ in
 
   # Set pkgs for hydenix globally, any file that imports pkgs will use this
   nixpkgs.pkgs = pkgs;
-
   imports = [
     inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
