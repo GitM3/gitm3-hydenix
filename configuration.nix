@@ -12,10 +12,12 @@ let
     overlays = [
       inputs.hydenix.lib.overlays
       (final: prev: {
-        userPkgs = import inputs.nixpkgs.config {
+        userPkgs = import inputs.nixpkgs= {
+	config {
 	  	allowUnfree = true;
   		permittedInsecurePackages = [
                		"adobe-reader-9.5.5" ];
+	 };
         };
       })
     ];

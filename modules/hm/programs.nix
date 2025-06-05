@@ -9,7 +9,7 @@
     lazydocker
     git-graph
     zathura
-    adobe-reader
+    userPkgs.adobe-reader
   ];
 }
 
