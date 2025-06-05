@@ -8,15 +8,18 @@ let
 
   pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
     inherit (inputs.hydenix.lib) system;
-    config.allowUnfree = true;
+	  config = {
+	    allowUnfree = true;
+	    permittedInsecurePackages = [
+	      "adobe-reader-9.5.5"
+	    ];
+	  };
     overlays = [
       inputs.hydenix.lib.overlays
       (final: prev: {
         userPkgs = import inputs.nixpkgs {
-	config {
+	config = {
 	  	allowUnfree = true;
-  		permittedInsecurePackages = [
-               		"adobe-reader-9.5.5" ];
 	 };
         };
       })
