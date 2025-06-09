@@ -21,7 +21,7 @@
       $d=[$wm|Basic Controls]
       bindd = $mainMod, q, $d close window , exec, $scrPath/dontkillsteam.sh
       bindd = Alt, F4, $d close window, exec, $scrPath/dontkillsteam.sh
-      bindd = $mainMod Shift, Control, q, $d quit hyprland , exit
+      bindd = $mainMod Shift Control, q, $d quit hyprland , exit
       bindd = $mainMod Shift, space, $d toggle float, togglefloating
       bindd = $mainMod, g, $d toggle group, togglegroup
       bindd = $mainMod, f, $d fullscreen (like vim fullscreen), fullscreen
