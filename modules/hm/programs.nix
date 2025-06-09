@@ -10,6 +10,9 @@
     git-graph
     zathura
     adobe-reader
+
+    # deps
+    mpv
   ];
 }
 
