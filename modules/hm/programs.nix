@@ -13,6 +13,7 @@
     lazygit
     lazydocker
     git-graph
+    navi
 
     # utils
     zathura
