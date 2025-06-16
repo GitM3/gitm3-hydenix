@@ -19,6 +19,7 @@
     goldendict-ng
     obsidian
     google-chrome
+    vlc
 
     # deps
     mpv
