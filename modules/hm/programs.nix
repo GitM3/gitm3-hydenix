@@ -18,6 +18,7 @@
     anki-bin # Addons: 1344485230  2055492159  312734862
     goldendict-ng
     obsidian
+    google-chrome
 
     # deps
     mpv
