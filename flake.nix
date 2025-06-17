@@ -4,7 +4,6 @@
   inputs = {
     # User's nixpkgs - for user packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     # Hydenix and its nixpkgs - kept separate to avoid conflicts
     hydenix = {
       # Available inputs:
@@ -14,7 +13,8 @@
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
     };
-
+    
+    nvix.url = "github:niksingh710/nvix";
     # Nix-index-database - for comma and command-not-found
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

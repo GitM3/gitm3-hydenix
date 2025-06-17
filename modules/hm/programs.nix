@@ -20,6 +20,7 @@
     obsidian
     google-chrome
     vlc
+    xournalpp
 
     # deps
     mpv

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -14,6 +14,8 @@
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
     git-credential-manager
+# TODO: include later
+#    inputs.nvix.packages.${pkgs.system}.core
   ];
         programs.git = {
         enable = true; 
@@ -47,7 +49,7 @@
       dolphin.enable = true; # file manager
       editors = {
         enable = true; # enable editors module
-        neovim = true; # enable neovim module
+        neovim = false; # enable neovim module
         vscode = {
           enable = true; # enable vscode module
           wallbash = true; # enable wallbash extension for vscode
