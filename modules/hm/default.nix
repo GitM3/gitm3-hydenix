@@ -7,6 +7,7 @@
   ./programs.nix
   ./yazi.nix
   ./hypr-usrprefs.nix
+  ./sync.nix
   ];
 
   # home-manager options go here
@@ -15,7 +16,7 @@
     # pkgs.userPkgs.vscode - your personal nixpkgs version
     git-credential-manager
 # TODO: include later
-#    inputs.nvix.packages.${pkgs.system}.core
+    inputs.nvix.packages.${pkgs.system}.core
   ];
         programs.git = {
         enable = true; 
@@ -54,7 +55,7 @@
           enable = true; # enable vscode module
           wallbash = true; # enable wallbash extension for vscode
         };
-        vim = true; # enable vim module
+        vim = false; # enable vim module
         default = "nvim"; # default text editor
       };
       fastfetch.enable = true; # fastfetch configuration

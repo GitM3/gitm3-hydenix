@@ -26,6 +26,7 @@ in {
 			diff = "${yazi-plugins}/diff.yazi";
 			git = "${yazi-plugins}/git.yazi";
 			toggle-pane = "${yazi-plugins}/toggle-pane.yazi";
+			bookmarks = "${yazi-plugins}/bookmarks";
 		};
 
 		initLua = ''
