@@ -21,6 +21,7 @@
     google-chrome
     vlc
     xournalpp
+    bottles
 
     # deps
     mpv

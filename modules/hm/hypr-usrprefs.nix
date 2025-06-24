@@ -6,14 +6,16 @@
       ## █░█ █▀ █▀▀ █▀█ █▀█ █▀█ █▀▀ █▀▀ █▀
       ## █▄█ ▄█ ██▄ █▀▄ █▀▀ █▀▄ ██▄ █▀░ ▄█
       # User Preferences Configuration
-      
+
       # Environment variables for fcitx5 input method
-      env = QT_IM_MODULE,fcitx  
+      env = QT_IM_MODULE,fcitx
       env = XMODIFIERS,@im=fcitx
       env = SDL_IM_MODULE,fcitx
       env = GLFW_IM_MODULE,ibus
       env = INPUT_METHOD,fcitx
-      
+      input {
+        kb_options = caps:escape_shifted_capslock
+      }
       # Start fcitx5 daemon on Hyprland startup
       exec-once = fcitx5 -d
     '';
