@@ -13,7 +13,7 @@
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
     };
-    
+
     nvix.url = "github:niksingh710/nvix";
     # Nix-index-database - for comma and command-not-found
     nix-index-database = {
@@ -33,8 +33,8 @@
           inherit inputs;
         };
         modules = [
-	   ./modules/system/japanese.nix
-          ./configuration.nix
+         ./modules/system/japanese.nix
+         ./configuration.nix
         ];
       };
 

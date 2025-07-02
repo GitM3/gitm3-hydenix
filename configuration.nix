@@ -10,17 +10,17 @@ let
     inherit (inputs.hydenix.lib) system;
 	  config = {
 	    allowUnfree = true;
-	    permittedInsecurePackages = [
-	      "adobe-reader-9.5.5"
-	    ];
+	    # permittedInsecurePackages = [
+	    #   ""
+	    # ];
 	  };
     overlays = [
       inputs.hydenix.lib.overlays
       (final: prev: {
         userPkgs = import inputs.nixpkgs {
-	config = {
-	  	allowUnfree = true;
-	 };
+        config = {
+            allowUnfree = true;
+         };
         };
       })
     ];
@@ -96,7 +96,7 @@ in
       boot = {
         enable = true; # enable boot module
         useSystemdBoot = false; # disable for GRUB
-        grubTheme = pkgs.hydenix.grub-retroboot; # or pkgs.hydenix.grub-pochita
+        grubTheme = "Pochita"; # or pkgs.hydenix.grub-pochita
         grubExtraConfig = ""; # additional GRUB configuration
         kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
       };
@@ -105,7 +105,7 @@ in
       nix.enable = true; # enable nix module
       sddm = {
         enable = true; # enable sddm module
-        theme = pkgs.hydenix.sddm-corners;
+        theme = "Corners";
       };
       system.enable = true; # enable system module
   };
@@ -121,7 +121,7 @@ in
       "dialout"
       "sudo"
     ];
-    shell = pkgs.zsh; 
+    shell = pkgs.zsh;
   };
 
   system.stateVersion = "25.05";
