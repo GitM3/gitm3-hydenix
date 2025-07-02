@@ -15,29 +15,34 @@
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
     git-credential-manager
-# TODO: include later
     inputs.nvix.packages.${pkgs.system}.core
   ];
+        services.gammastep = {
+            enable = true;
+            provider = "manual";
+            latitude = 25.7566 ;
+            longitude = 28.1914 ;
+        };
         programs.git = {
-        enable = true; 
-        extraConfig = {
-      # === Git Credential Manager (GCM) ===
-        credential = {
-          helper = "manager";
-          credentialStore = "secretservice";  # Uses GNOME Keyring
-          autoDetectTimeout = 30;
+          enable = true;
+          extraConfig = {
+            # === Git Credential Manager (GCM) ===
+            credential = {
+              helper = "manager";
+              credentialStore = "secretservice";  # Uses GNOME Keyring
+              autoDetectTimeout = 30;
+            };
+
+            "credential \"https://github.com\"" = {
+              provider = "github";
+              helper = "manager";
+            };
+            # === Git settings for better OAuth experience ===
+            init.defaultBranch = "main";
+            pull.rebase = false;
+            push.autoSetupRemote = true;
+          };
         };
-        
-        "credential \"https://github.com\"" = {
-          provider = "github";
-          helper = "manager";
-        };
-        # === Git settings for better OAuth experience ===
-        init.defaultBranch = "main";
-        pull.rebase = false;
-        push.autoSetupRemote = true;
-        };
-      };
 
   # hydenix home-manager options go here
   hydenix.hm = {
