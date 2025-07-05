@@ -21,6 +21,8 @@
     vlc
     xournalpp
     bottles
+    unzip
+    atool
 
     # deps
     mpv

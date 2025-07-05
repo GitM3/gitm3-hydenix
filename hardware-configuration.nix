@@ -35,6 +35,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22 80 8080 ];
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
