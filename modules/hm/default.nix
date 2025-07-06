@@ -8,6 +8,7 @@
   ./yazi.nix
   ./hypr-usrprefs.nix
   ./sync.nix
+  ./redshift.nix
   ];
 
   # home-manager options go here
@@ -17,12 +18,6 @@
     git-credential-manager
     inputs.nvix.packages.${pkgs.system}.core
   ];
-        services.gammastep = {
-            enable = true;
-            provider = "manual";
-            latitude = 25.7566 ;
-            longitude = 28.1914 ;
-        };
         programs.git = {
           enable = true;
           extraConfig = {
