@@ -27,7 +27,4 @@ services.redshift = {
     # "-m randr"
   ];
 };
-
-services.geoclue2.enable = true;
-location.provider = "geoclue2";
   }
