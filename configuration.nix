@@ -69,7 +69,7 @@ in
       inherit inputs;
     };
 
-    #! EDIT THIS USER (must match users defined below)
+    backupFileExtension = "hm_backup";
     users."zander" =
       { ... }:
       {

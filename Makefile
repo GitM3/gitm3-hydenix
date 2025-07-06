@@ -32,7 +32,8 @@ rebuild: ## Full rebuild and switch (alias for switch)
 	sudo nixos-rebuild switch --flake $(FLAKE_DIR)
 
 switch: ## Build and switch to new configuration
-	@echo "$(BLUE)🔄 Building and switching to new configuration...$(NC)"
+	@echo "$(BLUE)🔄 Git add, Building and switching to new configuration...$(NC)"
+	git add .
 	sudo nixos-rebuild switch --flake $(FLAKE_DIR)
 
 test: ## Build and test configuration (no switch)

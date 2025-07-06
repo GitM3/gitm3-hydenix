@@ -21,10 +21,5 @@ services.redshift = {
     day = "1";
     night = "0.8";
   };
-
-  extraOptions = [
-    # "-v"
-    # "-m randr"
-  ];
 };
   }
