@@ -18,6 +18,7 @@
       }
       # Start fcitx5 daemon on Hyprland startup
       exec-once = fcitx5 -d
+      exec-once = gammastep-indicator &
     '';
   };
 }
