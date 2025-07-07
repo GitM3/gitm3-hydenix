@@ -35,7 +35,6 @@ in
     ./hardware-configuration.nix
     inputs.hydenix.lib.nixOsModules
     ./modules/system
-
     # === GPU-specific configurations ===
 
     /*
@@ -77,6 +76,8 @@ in
           inputs.hydenix.lib.homeModules
           # Nix-index-database - for comma and command-not-found
           inputs.nix-index-database.hmModules.nix-index
+          inputs.flatpaks.homeManagerModules.nix-flatpak
+          ./modules/hm/flatpak.nix
           ./modules/hm
         ];
       };

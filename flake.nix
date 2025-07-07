@@ -13,7 +13,7 @@
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
     };
-
+    flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
     nvix.url = "github:niksingh710/nvix";
     # Nix-index-database - for comma and command-not-found
     nix-index-database = {
