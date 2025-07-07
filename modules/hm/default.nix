@@ -85,7 +85,7 @@
         enable = true; # enable shell module
         zsh = {
             enable = true;
-            plugins = ["sudo" "zsh-autosuggestions" "zsh-syntax-highlighting" "git" "you-should-use" "zsh-bat"];
+            plugins = ["sudo" "zoxide" "zsh-autosuggestions" "zsh-syntax-highlighting" "git" "you-should-use" "zsh-bat"];
             configText = "";
           };
         bash.enable = false; # enable bash shell

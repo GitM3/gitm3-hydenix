@@ -1,5 +1,15 @@
 { pkgs, ... }:
 {
+  programs.flatpak = {
+    enable = true;
+
+    remotes.flathub = {
+      url = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+      extraOptions = "--if-not-exists";
+    };
+
+    packages = [ "com.usebottles.bottles" ];
+  };
   home.packages = with pkgs; [
 
     # Shell
@@ -20,7 +30,6 @@
     google-chrome
     vlc
     xournalpp
-    bottles
     unzip
     atool
 
