@@ -2,7 +2,6 @@
 
 {
   imports = [
-#    ./japanese.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -14,5 +13,8 @@
     fuse3
   ];
 environment.variables = {
+  EDITOR = "nvim";
+  VISUAL = "nvim";
+  GOLDENDICT_FORCE_WAYLAND = 1;
 };
 }
