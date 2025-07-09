@@ -86,11 +86,11 @@
         zsh = {
             enable = true;
             plugins = ["sudo" "zoxide" "git" "fzf" ];
-            configText = "
-              alias cat='bat'
-              eval '$(pay-respects zsh --alias)'
-            ";
-          };
+            configText = ''
+            alias cat="bat"
+            eval  "$(pay-respects zsh --alias)"
+            '';
+        };
         bash.enable = false; # enable bash shell
         fish.enable = false; # enable fish shell
         pokego.enable = false; # enable Pokemon ASCII art scripts
