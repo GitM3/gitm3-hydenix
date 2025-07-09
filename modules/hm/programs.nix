@@ -14,6 +14,7 @@
 
     # Zsh
     zsh-you-should-use
+    thefuck
 
     # utils / tools
     zathura
@@ -26,6 +27,12 @@
     xournalpp
     unzip
     atool
+
+    # Productivity
+    stretchly
+    activitywatch
+    awatcher
+
 
     # deps
     mpv
