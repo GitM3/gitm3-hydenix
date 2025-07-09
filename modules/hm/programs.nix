@@ -10,6 +10,10 @@
     lazydocker
     git-graph
     navi
+    fzf
+
+    # Zsh
+    zsh-you-should-use
 
     # utils / tools
     zathura

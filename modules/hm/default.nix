@@ -58,7 +58,7 @@
         vim = false; # enable vim module
         default = "nvim"; # default text editor
       };
-      fastfetch.enable = true; # fastfetch configuration
+      fastfetch.enable = false; # fastfetch configuration
       firefox = {
         enable = true; # enable firefox module
       };
@@ -85,8 +85,10 @@
         enable = true; # enable shell module
         zsh = {
             enable = true;
-            plugins = ["sudo" "zoxide" "zsh-autosuggestions" "zsh-syntax-highlighting" "git" "you-should-use" "zsh-bat"];
-            configText = "";
+            plugins = ["sudo" "zoxide" "git" "fzf" "thefuck" ];
+            configText = "
+              alias cat='bat'
+            ";
           };
         bash.enable = false; # enable bash shell
         fish.enable = false; # enable fish shell
