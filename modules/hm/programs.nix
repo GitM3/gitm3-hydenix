@@ -14,7 +14,6 @@
 
     # Zsh
     zsh-you-should-use
-    thefuck
 
     # utils / tools
     zathura
