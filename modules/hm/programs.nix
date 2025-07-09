@@ -11,6 +11,7 @@
     git-graph
     navi
     fzf
+    pay-respects
 
     # Zsh
     zsh-you-should-use
@@ -29,9 +30,6 @@
 
     # Productivity
     stretchly
-    activitywatch
-    awatcher
-
 
     # deps
     mpv

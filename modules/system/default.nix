@@ -12,9 +12,9 @@
     fuse
     fuse3
   ];
-environment.variables = {
-  EDITOR = "nvim";
-  VISUAL = "nvim";
-  GOLDENDICT_FORCE_WAYLAND = 1;
-};
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    GOLDENDICT_FORCE_WAYLAND = 1;
+  };
 }
