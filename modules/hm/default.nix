@@ -9,6 +9,7 @@
   ./hypr-usrprefs.nix
   ./sync.nix
   ./redshift.nix
+  ./direnv.nix
   ];
 
   # home-manager options go here
@@ -58,7 +59,7 @@
         vim = false; # enable vim module
         default = "nvim"; # default text editor
       };
-      fastfetch.enable = true; # fastfetch configuration
+      fastfetch.enable = false; # fastfetch configuration
       firefox = {
         enable = true; # enable firefox module
       };
@@ -85,22 +86,24 @@
         enable = true; # enable shell module
         zsh = {
             enable = true;
-            plugins = ["sudo" "zoxide" "git" "fzf" ];
+            plugins = ["sudo" "zoxide" "git" "fzf" "direnv" ];
             configText = ''
             alias cat="bat"
+            alias yazi="y"
             eval  "$(pay-respects zsh --alias)"
             '';
         };
         bash.enable = false; # enable bash shell
         fish.enable = false; # enable fish shell
-        pokego.enable = false; # enable Pokemon ASCII art scripts
         p10k.enable = true;
+        starship.enable = false;
+        fastfetch.enable = false;
       };
       social = {
         enable = false; # enable social module
-        # discord.enable = false; # enable discord module
-        # webcord.enable = false; # enable webcord module
-        # vesktop.enable = false; # enable vesktop module
+        discord.enable = false; # enable discord module
+        webcord.enable = false; # enable webcord module
+        vesktop.enable = false; # enable vesktop module
       };
       spotify.enable = true; # enable spotify module
       swww.enable = true; # enable swww wallpaper daemon

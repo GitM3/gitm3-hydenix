@@ -77,7 +77,7 @@ in {
 				desc = "Save current position as a bookmark";
 				}
 				{
-				on = [ "'" ];
+				on = [ "b" "b" ];
 				run = "plugin bookmarks jump";
 				desc = "Jump to a bookmark";
 				}

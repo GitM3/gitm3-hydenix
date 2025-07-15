@@ -11,6 +11,10 @@
     exfat
     fuse
     fuse3
+
+    # Development
+    devenv
+    cachix
   ];
   environment.variables = {
     EDITOR = "nvim";
