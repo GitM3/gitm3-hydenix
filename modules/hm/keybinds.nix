@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.file.".local/lib/hyde/toggle-hdmi.sh" = {
+    executable = true;
+    source = ../../resources/scripts/toggle-hdmi.sh;
+  };
   # Override the keybindings.conf that Hydenix manages
   home.file.".config/hypr/keybindings.conf" = lib.mkForce {
     text = ''
@@ -8,7 +12,7 @@
       ## █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀ █ █░▀█ █▄█ ▄█
       # Vim-Inspired Hyprland Keybindings
 
-      #*  Variables 
+      #*  Variables
       # Default if commented out
       # $mainMod = Super # super / meta / windows key
       # Assign apps
@@ -33,7 +37,7 @@
       bindd = $mainMod, bracketleft, $d previous group [ ], changegroupactive, b
       bindd = $mainMod, bracketright, $d next group [ ], changegroupactive, f
 
-      $d=[$wm|Focus Navigation|Vim HJKL]
+      $d=[$wm|Focus Navigation]
       bindd = $mainMod, h, $d ← focus left, movefocus, l
       bindd = $mainMod, l, $d → focus right, movefocus, r
       bindd = $mainMod, k, $d ↑ focus up, movefocus, u
@@ -79,14 +83,14 @@
       $d=[$l|Rofi menus - Vim leader style]
       $rofi-launch=$scrPath/rofilaunch.sh
       bindd = $mainMod, space, $d application finder, exec, pkill -x rofi || $rofi-launch d
-      bindd = $mainMod, Tab, $d window switcher, exec, pkill -x rofi || $rofi-launch w
+      bindd = $mainMod , Tab, $d window switcher, exec, pkill -x rofi || $rofi-launch w
       bindd = $mainMod Shift, e, $d file finder, exec, pkill -x rofi || $rofi-launch f
       bindd = $mainMod, slash, $d keybindings hint, exec, pkill -x rofi || $scrPath/keybinds_hint.sh c
       bindd = $mainMod, semicolon, $d emoji picker, exec, pkill -x rofi || $scrPath/emoji-picker.sh
       bindd = $mainMod, apostrophe, $d glyph picker, exec, pkill -x rofi || $scrPath/glyph-picker.sh
       bindd = $mainMod, p, $d clipboard, exec, pkill -x rofi || $scrPath/cliphist.sh -c
       bindd = $mainMod Shift, p, $d clipboard manager, exec, pkill -x rofi || $scrPath/cliphist.sh
-      bindd = $mainMod, m, $d select rofi launcher, exec, pkill -x rofi || $scrPath/rofiselect.sh
+      #bindd = $mainMod, m, $d select rofi launcher, exec, pkill -x rofi || $scrPath/rofiselect.sh
 
       $hc=Hardware Controls
       $d=[$hc|Audio]
@@ -144,6 +148,7 @@
       bindd = $mainMod, 0, $d navigate to workspace 10, workspace, 10
 
       $d=[$ws|Navigation|Relative workspace - Vim style]
+      bindd = $mainMod , Grave, $d change to last active workspace forwards, workspace, previous_per_monitor
       bindd = $mainMod Control, l, $d change active workspace forwards, workspace, r+1
       bindd = $mainMod Control, h, $d change active workspace backwards, workspace, r-1
 
@@ -191,11 +196,17 @@
       bindd = $mainMod Alt, 8, $d move to workspace 8 (silent), movetoworkspacesilent, 8
       bindd = $mainMod Alt, 9, $d move to workspace 9 (silent), movetoworkspacesilent, 9
       bindd = $mainMod Alt, 0, $d move to workspace 10 (silent), movetoworkspacesilent, 10
-      
-      # FCITX stuff 
+
+      # FCITX stuff
       $d=[$wm|Input Method]
       bindd = Control, space, $d toggle input method, exec, fcitx5-remote -t
       bindd = $mainMod Shift, I, $d fcitx5 config tool, exec, fcitx5-configtool
+
+      # Custom Scripts
+      $d=[$wm|Custom Scripts]
+      bindd = $mainMod , m, $d toggle hdmi left and right, exec, $scrPath/toggle-hdmi.sh
+      #bindd = $mainMod, m, $d select rofi launcher, exec, pkill -x rofi || $scrPath/rofiselect.sh
+
 
       $d=#! unset the group name
     '';
