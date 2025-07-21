@@ -119,16 +119,16 @@ optimize: ## Optimize nix store
 
 update: ## Update flake inputs
 	@printf "$(BLUE)📦 Updating flake inputs...$(NC)"
-	nix flake update $(FLAKE_DIR)
+	sudo nix flake update --flake $(FLAKE_DIR)
 	@printf "$(GREEN)✅ Flake inputs updated$(NC)"
 
 update-nixpkgs: ## Update only nixpkgs input
 	@printf "$(BLUE)📦 Updating nixpkgs...$(NC)"
-	nix flake lock --update-input nixpkgs $(FLAKE_DIR)
+	sudo nix flake lock --update-input nixpkgs $(FLAKE_DIR)
 
 update-hydenix: ## Update only hydenix input
 	@printf "$(BLUE)📦 Updating hydenix...$(NC)"
-	nix flake lock --update-input hydenix $(FLAKE_DIR)
+	sudo nix flake lock --update-input hydenix $(FLAKE_DIR)
 
 upgrade: ## Update and rebuild
 	@printf "$(BLUE)🆙 Updating and rebuilding...$(NC)"
