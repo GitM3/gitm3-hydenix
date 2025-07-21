@@ -14,7 +14,7 @@
       env = GLFW_IM_MODULE,ibus
       env = INPUT_METHOD,fcitx
       input {
-        kb_options = caps:escape_shifted_capslock
+        kb_options = caps:escape_shifted_capslock, compose:rctrl
       }
       # Start fcitx5 daemon on Hyprland startup
       exec-once = fcitx5 -d
