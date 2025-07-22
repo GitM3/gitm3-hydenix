@@ -49,17 +49,17 @@
       bindd = $mainMod, Down, $d ↓ focus down (arrow), movefocus, d
 
       $d=[$wm|Window Resize|Vim Style]
-      bindde = $mainMod Shift, l, $d ⤡ resize right (Shift+L), resizeactive, 30 0
-      bindde = $mainMod Shift, h, $d ⤢ resize left (Shift+H), resizeactive, -30 0
-      bindde = $mainMod Shift, k, $d ⤴ resize up (Shift+K), resizeactive, 0 -30
-      bindde = $mainMod Shift, j, $d ⤵ resize down (Shift+J), resizeactive, 0 30
+      bindde = $mainMod Control, l, $d ⤡ resize right (Shift+L), resizeactive, 30 0
+      bindde = $mainMod Control, h, $d ⤢ resize left (Shift+H), resizeactive, -30 0
+      bindde = $mainMod Control, k, $d ⤴ resize up (Shift+K), resizeactive, 0 -30
+      bindde = $mainMod Control, j, $d ⤵ resize down (Shift+J), resizeactive, 0 30
 
       $d=[$wm|Window Movement|Vim Style]
       $moveactivewindow=grep -q "true" <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive
-      bindde = $mainMod Control, h, $d ⬅ move left (Ctrl+H), exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l
-      bindde = $mainMod Control, l, $d ➡ move right (Ctrl+L), exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r
-      bindde = $mainMod Control, k, $d ⬆ move up (Ctrl+K), exec, $moveactivewindow 0 -30 || hyprctl dispatch movewindow u
-      bindde = $mainMod Control, j, $d ⬇ move down (Ctrl+J), exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d
+      bindde = $mainMod Shift, h, $d ⬅ move left (Ctrl+H), exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l
+      bindde = $mainMod Shift, l, $d ➡ move right (Ctrl+L), exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r
+      bindde = $mainMod Shift, k, $d ⬆ move up (Ctrl+K), exec, $moveactivewindow 0 -30 || hyprctl dispatch movewindow u
+      bindde = $mainMod Shift, j, $d ⬇ move down (Ctrl+J), exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d
 
       # Move/Resize focused window
       $d=[$wm|Move & Resize with mouse]
@@ -170,8 +170,8 @@
 
       # Move focused window to a relative workspace
       $d=[$ws|Move to relative workspace - Vim style]
-      bindd = $mainMod Control Shift, l, $d move window to next relative workspace, movetoworkspace, r+1
-      bindd = $mainMod Control Shift, h, $d move window to previous relative workspace, movetoworkspace, r-1
+      bindd = $mainMod Shift, n, $d move window to next relative workspace, movetoworkspace, r+1
+      bindd = $mainMod Shift, b, $d move window to previous relative workspace, movetoworkspace, r-1
 
       # Scroll through existing workspaces
       $d=[$ws|Navigation]

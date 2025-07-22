@@ -10,6 +10,7 @@
   ./hypr-idle.nix
   ./sync.nix
   ./redshift.nix
+  ./nvim.nix
   ./direnv.nix
   ];
 
@@ -32,7 +33,6 @@
     # pkgs.vscode - hydenix's vscode version
     # pkgs.userPkgs.vscode - your personal nixpkgs version
     git-credential-manager
-    inputs.nvix.packages.${pkgs.system}.core
   ];
         programs.git = {
           enable = true;

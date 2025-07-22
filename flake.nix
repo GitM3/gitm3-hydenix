@@ -14,7 +14,7 @@
       url = "github:richen604/hydenix";
     };
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
-    nvix.url = "github:niksingh710/nvix";
+    khanelivim.url = "github:khaneliman/khanelivim";
     # Nix-index-database - for comma and command-not-found
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
