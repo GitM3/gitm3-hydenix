@@ -10,6 +10,10 @@
     executable = true;
     source = ../../resources/scripts/toggle-hdmi.sh;
   };
+  home.file.".local/lib/hyde/dict.sh" = {
+    executable = true;
+    source = ../../resources/scripts/dict.sh;
+  };
   # Override the keybindings.conf that Hydenix manages
   home.file.".config/hypr/keybindings.conf" = lib.mkForce {
     text = ''
@@ -209,8 +213,8 @@
 
       # Custom Scripts
       $d=[$wm|Custom Scripts]
-      bindd = $mainMod , m, $d toggle hdmi left and right, exec, $scrPath/toggle-hdmi.sh
-      bindd = $mainMod , d, $d open dictionary, exec, goldendict
+      bindd = $mainMod , m, $d toggle hdmi left and right, exec, $srcPath/toggle-hdmi.sh
+      bindd = $mainMod , d, $d open or focus dictionary, exec, bash -l -c '$scrPath/dict.sh'
       #bindd = $mainMod, m, $d select rofi launcher, exec, pkill -x rofi || $scrPath/rofiselect.sh
 
 
