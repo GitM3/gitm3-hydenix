@@ -4,7 +4,6 @@
 
     # Shell
     bat
-    zellij
     zoxide
     lazygit
     lazydocker

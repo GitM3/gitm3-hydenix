@@ -12,6 +12,7 @@
     ./redshift.nix
     ./nvim.nix
     ./direnv.nix
+    ./zellij.nix
   ];
 
   home.sessionVariables = {
@@ -132,7 +133,7 @@
       enable = true; # enable terminals module
       kitty = {
         enable = true; # enable kitty terminal
-        configText = ""; # kitty config text
+        configText = builtins.readFile ./kitty.conf;
       };
     };
     theme = {
