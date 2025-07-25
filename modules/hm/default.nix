@@ -13,6 +13,7 @@
     ./nvim.nix
     ./direnv.nix
     ./zellij.nix
+    ./waybar.nix
   ];
 
   home.sessionVariables = {
@@ -153,7 +154,10 @@
         "Gruvbox Retro"
       ]; # default enabled themes, full list in https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
     };
-    waybar.enable = true; # enable waybar module
+    waybar = {
+      enable = true; # enable waybar module
+      userStyle = builtins.readFile ./waybar.css;
+    };
     wlogout.enable = true; # enable wlogout module
     xdg.enable = true; # enable xdg module
   };
