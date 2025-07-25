@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.file.".local/lib/hyde/toggle-hdmi.sh" = {
@@ -205,6 +210,7 @@
       # Custom Scripts
       $d=[$wm|Custom Scripts]
       bindd = $mainMod , m, $d toggle hdmi left and right, exec, $scrPath/toggle-hdmi.sh
+      bindd = $mainMod , d, $d open dictionary, exec, goldendict
       #bindd = $mainMod, m, $d select rofi launcher, exec, pkill -x rofi || $scrPath/rofiselect.sh
 
 
