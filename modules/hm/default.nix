@@ -113,6 +113,7 @@
           alias cat="bat"
           alias yazi="y"
           eval  "$(pay-respects zsh --alias)"
+          source ~/hydix/resources/.zshrc_extra
         '';
       };
       bash.enable = false; # enable bash shell

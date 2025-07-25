@@ -8,19 +8,19 @@ let
 
   pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
     inherit (inputs.hydenix.lib) system;
-	  config = {
-	    allowUnfree = true;
-	    # permittedInsecurePackages = [
-	    #   ""
-	    # ];
-	  };
+    config = {
+      allowUnfree = true;
+      # permittedInsecurePackages = [
+      #   ""
+      # ];
+    };
     overlays = [
       inputs.hydenix.lib.overlays
       (final: prev: {
         userPkgs = import inputs.nixpkgs {
-        config = {
+          config = {
             allowUnfree = true;
-         };
+          };
         };
       })
     ];
@@ -92,23 +92,22 @@ in
     timezone = "Africa/Johannesburg"; # Change to your timezone
     locale = "en_ZA.UTF-8"; # Change to your preferred locale
 
-
-      audio.enable = true; # enable audio module
-      boot = {
-        enable = true; # enable boot module
-        useSystemdBoot = false; # disable for GRUB
-        grubTheme = "Pochita"; # or pkgs.hydenix.grub-pochita
-        grubExtraConfig = ""; # additional GRUB configuration
-        kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
-      };
-      hardware.enable = true; # enable hardware module
-      network.enable = true; # enable network module
-      nix.enable = true; # enable nix module
-      sddm = {
-        enable = true; # enable sddm module
-        theme = "Corners";
-      };
-      system.enable = true; # enable system module
+    audio.enable = true; # enable audio module
+    boot = {
+      enable = true; # enable boot module
+      useSystemdBoot = false; # disable for GRUB
+      grubTheme = "Pochita"; # or pkgs.hydenix.grub-pochita
+      grubExtraConfig = ""; # additional GRUB configuration
+      kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
+    };
+    hardware.enable = true; # enable hardware module
+    network.enable = true; # enable network module
+    nix.enable = true; # enable nix module
+    sddm = {
+      enable = true; # enable sddm module
+      theme = "Corners";
+    };
+    system.enable = true; # enable system module
   };
 
   #! EDIT THESE VALUES (must match users defined above)
@@ -124,6 +123,9 @@ in
     ];
     shell = pkgs.zsh;
   };
-
+  nix.settings.trusted-users = [
+    "root"
+    "zander"
+  ]; # Adding for cachix
   system.stateVersion = "25.05";
 }
