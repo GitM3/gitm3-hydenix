@@ -6,9 +6,9 @@
 }:
 
 {
-  home.file.".local/lib/hyde/toggle-hdmi.sh" = {
+  home.file.".local/lib/hyde/script_launcher.sh" = {
     executable = true;
-    source = ../../resources/scripts/toggle-hdmi.sh;
+    source = ../../resources/scripts/script_launcher.sh;
   };
   home.file.".local/lib/hyde/dict.sh" = {
     executable = true;
@@ -213,9 +213,8 @@
 
       # Custom Scripts
       $d=[$wm|Custom Scripts]
-      bindd = $mainMod , m, $d toggle hdmi left and right, exec, $srcPath/toggle-hdmi.sh
+      bindd = $mainMod , s, $d script launcher, exec, bash -l -c '$scrPath/script_launcher.sh'
       bindd = $mainMod , d, $d open or focus dictionary, exec, bash -l -c '$scrPath/dict.sh'
-      #bindd = $mainMod, m, $d select rofi launcher, exec, pkill -x rofi || $scrPath/rofiselect.sh
 
 
       $d=#! unset the group name

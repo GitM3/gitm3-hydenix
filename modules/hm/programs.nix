@@ -26,6 +26,7 @@
     xournalpp
     unzip
     atool
+    calibre
 
     # Productivity
     stretchly

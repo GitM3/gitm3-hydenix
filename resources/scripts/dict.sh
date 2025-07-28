@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-
+#!/run/current-system/sw/bin/bash
+# Focus or open dictionary application
 # Set a comprehensive PATH to ensure we find all commands
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
