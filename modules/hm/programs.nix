@@ -11,7 +11,7 @@
     navi
     fzf
     pay-respects
-
+    nodejs_20
     # Zsh
     zsh-you-should-use
 
@@ -33,5 +33,13 @@
 
     # deps
     mpv
+    poppler
+    jq
+    ripgrep
+    imagemagick
+    fd
+    zip
+    unzip
+    tree
   ];
 }

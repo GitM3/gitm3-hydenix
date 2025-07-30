@@ -1,2 +1,4 @@
 export NIXPKGS_ALLOW_UNFREE=1
 export MANPAGER='nvim +Man!'
+alias fn='nvim $(fzf)'
+alias fp='zathura $(fzf)'

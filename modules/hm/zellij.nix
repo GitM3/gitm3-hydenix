@@ -8,9 +8,10 @@
               unbind "Ctrl h"
           }
       }
-      theme "iceberg-dark"
+      theme "catppuccin-mocha"
     '';
   };
+  # theme "iceberg-dark" is also nice, more "blue/nordy"
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;
