@@ -158,8 +158,8 @@
 
       $d=[$ws|Navigation|Relative workspace - Vim style]
       bindd = $mainMod , Grave, $d change to last active workspace forwards, workspace, previous_per_monitor
-      bindd = $mainMod Control, l, $d change active workspace forwards, workspace, r+1
-      bindd = $mainMod Control, h, $d change active workspace backwards, workspace, r-1
+      bindd = $mainMod Alt, l, $d change active workspace forwards, workspace, r+1
+      bindd = $mainMod Alt , h, $d change active workspace backwards, workspace, r-1
 
       $d=[$ws|Navigation]
       bindd = $mainMod, n, $d navigate to the nearest empty workspace, workspace, empty
