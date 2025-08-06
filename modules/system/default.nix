@@ -2,7 +2,6 @@
 
 {
   imports = [
-    # ./sddm.nix
   ];
 
   environment.systemPackages = with pkgs; [

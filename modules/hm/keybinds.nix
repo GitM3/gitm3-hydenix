@@ -23,6 +23,7 @@
     # };
   };
   home.activation.copyWallpaper = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    rm -f "$HOME/.config/hyde/themes/Decay Green/wallpapers/cat.png"
     cp ${../../resources/wallpapers/cat.png} "$HOME/.config/hyde/themes/Decay Green/wallpapers/cat.png"
   '';
 }

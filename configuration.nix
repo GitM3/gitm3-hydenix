@@ -23,15 +23,6 @@ let
           };
         };
       })
-      (final: prev: {
-        hydenix = prev.hydenix // {
-          hyde = prev.hydenix.hyde.overrideAttrs (oldAttrs: {
-            postInstall = (oldAttrs.postInstall or "") + ''
-              cp ${./resources/wallpapers/cat.png} $out/share/sddm/themes/Corners/backgrounds/bg.png
-            '';
-          });
-        };
-      })
     ];
   };
 in
@@ -84,7 +75,7 @@ in
         imports = [
           inputs.hydenix.lib.homeModules
           # Nix-index-database - for comma and command-not-found
-          inputs.nix-index-database.hmModules.nix-index
+          inputs.nix-index-database.homeModules.nix-index
           inputs.flatpaks.homeManagerModules.nix-flatpak
           ./modules/hm/flatpak.nix
           ./modules/hm
