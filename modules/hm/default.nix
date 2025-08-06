@@ -114,7 +114,7 @@
           alias cat="bat"
           alias yazi="y"
           eval  "$(pay-respects zsh --alias)"
-          source ~/hydix/resources/.zshrc_extra
+          source ~/hydix/resources/config/.zshrc_extra
         '';
       };
       bash.enable = false; # enable bash shell
@@ -135,7 +135,7 @@
       enable = true; # enable terminals module
       kitty = {
         enable = true; # enable kitty terminal
-        configText = builtins.readFile ./kitty.conf;
+        configText = builtins.readFile ../../resources/config/kitty.conf;
       };
     };
     theme = {
@@ -156,7 +156,7 @@
     };
     waybar = {
       enable = true; # enable waybar module
-      userStyle = builtins.readFile ./waybar.css;
+      userStyle = builtins.readFile ../../resources/config/waybar.css;
     };
     wlogout.enable = true; # enable wlogout module
     xdg.enable = true; # enable xdg module
