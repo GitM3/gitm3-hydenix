@@ -18,5 +18,11 @@
     ".config/hypr/keybindings.conf" = lib.mkForce {
       source = ../../resources/config/keybinds.conf;
     };
+    # ".config/hyde/themes/Decay Green/wallpapers/cat.png" = {
+    #   source = ../../resources/wallpapers/cat.png;
+    # };
   };
+  home.activation.copyWallpaper = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    cp ${../../resources/wallpapers/cat.png} "$HOME/.config/hyde/themes/Decay Green/wallpapers/cat.png"
+  '';
 }

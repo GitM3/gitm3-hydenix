@@ -23,6 +23,15 @@ let
           };
         };
       })
+      (final: prev: {
+        hydenix = prev.hydenix // {
+          hyde = prev.hydenix.hyde.overrideAttrs (oldAttrs: {
+            postInstall = (oldAttrs.postInstall or "") + ''
+              cp ${./resources/wallpapers/cat.png} $out/share/sddm/themes/Corners/backgrounds/bg.png
+            '';
+          });
+        };
+      })
     ];
   };
 in
