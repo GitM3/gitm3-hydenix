@@ -11,9 +11,13 @@
     navi
     fzf
     pay-respects
+    fastfetch
     nodejs_20
     # Zsh
     zsh-you-should-use
+
+    # Development
+    kicad
 
     # utils / tools
     zathura
@@ -27,6 +31,7 @@
     unzip
     atool
     calibre
+    scrcpy
 
     # Productivity
     stretchly
