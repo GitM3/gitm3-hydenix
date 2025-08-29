@@ -32,7 +32,14 @@
     atool
     calibre
     scrcpy
-
+    dupeguru
+    parted
+    rsync
+    (clementine.override {
+      config = {
+        clementine.ipod = true;
+      };
+    })
     # Productivity
     stretchly
 
@@ -47,4 +54,5 @@
     unzip
     tree
   ];
+
 }
