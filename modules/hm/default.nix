@@ -38,6 +38,8 @@
   ];
   programs.git = {
     enable = true;
+    userEmail = "zander@polsons.info";
+    userName = "GitM3";
     extraConfig = {
       # === Git Credential Manager (GCM) ===
       credential = {
@@ -54,16 +56,14 @@
       init.defaultBranch = "main";
       pull.rebase = false;
       push.autoSetupRemote = true;
+
     };
   };
 
   # hydenix home-manager options go here
   hydenix.hm = {
-    #! Important options
     enable = true;
-
-    # ! Below are defaults
-
+    git.enable = false;
     comma.enable = true; # useful nix tool to run software without installing it first
     dolphin.enable = true; # file manager
     editors = {
@@ -142,16 +142,15 @@
       enable = true; # enable theme module
       active = "Decay Green"; # active theme name
       themes = [
-        "Catppuccin Mocha"
-        "Catppuccin Latte"
+        #"Catppuccin Mocha"
+        #"Catppuccin Latte"
         "Decay Green"
-        "Tokyo Night"
-        "Graphite Mono"
-        "Frosted Glass"
-        "Moonlight"
-        "Nordic Blue"
-        "One Dark"
-        "Gruvbox Retro"
+        #"Tokyo Night"
+        #"Graphite Mono"
+        #"Moonlight"
+        #"Nordic Blue"
+        #"One Dark"
+        #"Gruvbox Retro"
       ]; # default enabled themes, full list in https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
     };
     waybar = {

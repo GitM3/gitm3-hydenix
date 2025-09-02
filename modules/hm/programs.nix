@@ -15,9 +15,11 @@
     nodejs_20
     # Zsh
     zsh-you-should-use
+    pywal
+    pywalfox-native
 
     # Development
-    kicad
+    # kicad
 
     # utils / tools
     zathura

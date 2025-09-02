@@ -95,7 +95,7 @@ in
     audio.enable = true; # enable audio module
     boot = {
       enable = true; # enable boot module
-      useSystemdBoot = false; # disable for GRUB
+      useSystemdBoot = true; # disable for GRUB
       grubTheme = "Pochita"; # or pkgs.hydenix.grub-pochita
       grubExtraConfig = ""; # additional GRUB configuration
       kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
