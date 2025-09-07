@@ -160,46 +160,4 @@
     wlogout.enable = true; # enable wlogout module
     xdg.enable = true; # enable xdg module
   };
-  services = {
-    activitywatch = {
-      enable = true;
-      package = pkgs.aw-server-rust;
-      extraOptions = [
-        "--host"
-        "127.0.0.1"
-        "--port"
-        "5600"
-      ];
-      watchers = {
-        # --- stop ActivityWatch from spawning its classic X11 watchers -----------
-        aw-watcher-window = {
-          package = pkgs.activitywatch;
-          settings = {
-            enabled = false;
-          }; # anything ≠ {} disables it
-        };
-        aw-watcher-afk = {
-          package = pkgs.activitywatch;
-          settings = {
-            enabled = false;
-          };
-        };
-        awatcher = {
-          package = pkgs.awatcher; # already in 25.05 / unstable
-          executable = "awatcher"; # default == name, could be "aw-awatcher"
-          settings = {
-            poll_time = 1;
-            timeout = 300;
-          }; # optional TOML file
-          extraOptions = [
-            "--host"
-            "127.0.0.1"
-            "--port"
-            "5600"
-          ];
-        };
-      };
-    };
-
-  };
 }

@@ -17,6 +17,7 @@
     zsh-you-should-use
     pywal
     pywalfox-native
+    spicetify-cli
 
     # Development
     # kicad
