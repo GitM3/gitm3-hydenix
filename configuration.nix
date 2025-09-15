@@ -89,7 +89,7 @@ in
 
     #! EDIT THESE VALUES
     hostname = "zander"; # Change to your preferred hostname
-    timezone = "Africa/Johannesburg"; # Change to your timezone
+    timezone = "Asia/Tokyo"; # Change to your timezone
     locale = "en_ZA.UTF-8"; # Change to your preferred locale
 
     audio.enable = true; # enable audio module
