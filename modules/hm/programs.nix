@@ -46,6 +46,7 @@
     })
     # Productivity
     stretchly
+    slack
 
     # deps
     mpv

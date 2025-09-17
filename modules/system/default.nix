@@ -18,6 +18,10 @@
       "8.8.8.8"
       "1.1.1.1"
     ];
+    firewall.allowedUDPPorts = [
+      67
+      68
+    ];
     firewall.allowedTCPPorts = [
       22
       80
@@ -73,5 +77,10 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     GOLDENDICT_FORCE_WAYLAND = 1;
+  };
+  hardware.enableRedistributableFirmware = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 }

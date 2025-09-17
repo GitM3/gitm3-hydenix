@@ -120,6 +120,7 @@ in
       "video" # For display/graphics access
       "dialout"
       "sudo"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
