@@ -21,6 +21,7 @@
 
     # Development
     # kicad
+    docker-compose
 
     # utils / tools
     zathura
