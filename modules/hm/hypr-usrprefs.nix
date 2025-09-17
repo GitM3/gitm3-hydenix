@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   # Override the userprefs.conf that Hydenix manages with fcitx5 configuration
   home.file.".config/hypr/userprefs.conf" = lib.mkForce {
@@ -21,6 +26,8 @@
       exec-once = gammastep-indicator &
       exec-once = stretchly &
 
+      # Monitor Manager
+      source = ~/.config/hypr/monitors.conf
     '';
   };
 }

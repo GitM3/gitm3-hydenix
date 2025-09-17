@@ -83,6 +83,7 @@
     hyde.enable = true; # enable hyde module
     hyprland = {
       enable = true;
+      monitors.enable = false;
     };
     lockscreen = {
       enable = true; # enable lockscreen module
