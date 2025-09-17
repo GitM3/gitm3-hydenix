@@ -38,6 +38,7 @@
     dupeguru
     parted
     rsync
+    nwg-displays
     (clementine.override {
       config = {
         clementine.ipod = true;
