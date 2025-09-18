@@ -13,6 +13,7 @@
     pay-respects
     fastfetch
     nodejs_20
+    htop
     # Zsh
     zsh-you-should-use
     pywal
@@ -45,6 +46,7 @@
         clementine.ipod = true;
       };
     })
+    libreoffice-fresh
     # Productivity
     stretchly
     slack

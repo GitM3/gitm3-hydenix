@@ -79,8 +79,7 @@
     GOLDENDICT_FORCE_WAYLAND = 1;
   };
   hardware.enableRedistributableFirmware = true;
-  virtualisation.docker.rootless = {
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
   };
 }
