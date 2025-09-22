@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  programs.zathura = {
+    enable = true;
+    extraConfig = ''
+      set sandbox none
+    '';
+  };
   home.packages = with pkgs; [
 
     # Shell
@@ -25,7 +31,6 @@
     docker-compose
 
     # utils / tools
-    zathura
     qbittorrent
     anki-bin # Addons: 1344485230  2055492159  312734862
     goldendict-ng
