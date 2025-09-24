@@ -25,9 +25,7 @@
       exec-once = fcitx5 -d
       exec-once = gammastep-indicator &
       exec-once = stretchly &
-
-      # Monitor Manager
-      source = ~/.config/hypr/monitors.conf
+      exec-once = qnotero &
     '';
   };
 }

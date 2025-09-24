@@ -4,6 +4,7 @@
     enable = true;
     extraConfig = ''
       set sandbox none
+      set selection-clipboard "clipboard"
     '';
   };
   home.packages = with pkgs; [
@@ -20,6 +21,7 @@
     fastfetch
     nodejs_20
     htop
+
     # Zsh
     zsh-you-should-use
     pywal
@@ -52,9 +54,12 @@
       };
     })
     libreoffice-fresh
+
     # Productivity
     stretchly
     slack
+    zotero
+    qnotero
 
     # deps
     mpv
@@ -66,6 +71,7 @@
     zip
     unzip
     tree
+    wget
   ];
 
 }
