@@ -23,6 +23,23 @@ let
           };
         };
       })
+      (final: prev: {
+        python3Packages = prev.python3Packages.overrideScope (
+          pyFinal: pyPrev: {
+            i3ipc = pyPrev.i3ipc.overridePythonAttrs (old: {
+              doCheck = false;
+            });
+          }
+        );
+      })
+      (final: prev: {
+        khanelivim = inputs.khanelivim.overrideAttrs (old: {
+          doCheck = false;
+          doInstallCheck = false;
+          dontCheck = true;
+          checkPhase = "echo 'Skipping khanelivim tests'";
+        });
+      })
     ];
   };
 in

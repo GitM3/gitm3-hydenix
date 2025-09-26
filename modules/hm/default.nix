@@ -111,9 +111,6 @@
           "direnv"
         ];
         configText = ''
-          alias cat="bat"
-          alias yazi="y"
-          eval  "$(pay-respects zsh --alias)"
           source ~/hydix/resources/config/.zshrc_extra
         '';
       };
