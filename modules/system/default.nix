@@ -69,6 +69,8 @@
     exfat
     fuse
     fuse3
+    opentabletdriver
+    podman-compose
 
     # Development
     devenv
@@ -86,6 +88,7 @@
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
+    dockerSocket.enable = true;
   };
 
 }
