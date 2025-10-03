@@ -54,7 +54,6 @@
     })
     libreoffice-fresh
     pandoc
-    tailscale
 
     # Productivity
     stretchly

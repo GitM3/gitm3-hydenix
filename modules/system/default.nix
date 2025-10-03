@@ -31,6 +31,7 @@
   };
   security.pam.services.sddm.enableGnomeKeyring = true;
   services = {
+    tailscale.enable = true;
     udev.packages = [ pkgs.librealsense ];
     gnome.gnome-keyring.enable = true;
     printing = {
