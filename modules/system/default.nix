@@ -31,6 +31,7 @@
   };
   security.pam.services.sddm.enableGnomeKeyring = true;
   services = {
+    udev.packages = [ pkgs.librealsense ];
     gnome.gnome-keyring.enable = true;
     printing = {
       enable = true;
@@ -73,8 +74,10 @@
     podman-compose
 
     # Development
+    distrobox
     devenv
     cachix
+    librealsense-gui
   ];
   environment.variables = {
     EDITOR = "nvim";

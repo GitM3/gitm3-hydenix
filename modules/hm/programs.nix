@@ -30,7 +30,6 @@
 
     # Development
     # kicad
-    docker-compose
 
     # utils / tools
     qbittorrent
@@ -54,6 +53,7 @@
       };
     })
     libreoffice-fresh
+    pandoc
 
     # Productivity
     stretchly
