@@ -21,6 +21,8 @@
     firewall.allowedUDPPorts = [
       67
       68
+      3478
+      41641
     ];
     firewall.allowedTCPPorts = [
       22
