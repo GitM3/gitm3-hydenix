@@ -60,6 +60,7 @@
     slack
     zotero
     qnotero
+    wlvncc
 
     # deps
     mpv
