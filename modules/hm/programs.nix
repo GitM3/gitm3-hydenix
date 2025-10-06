@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.zathura = {
     enable = true;
@@ -29,7 +29,7 @@
     pywalfox-native
     spicetify-cli
     pipx
-    python312
+    (lib.lowPrio python312)
 
     # Development
     # kicad
