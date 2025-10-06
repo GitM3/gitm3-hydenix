@@ -7,6 +7,7 @@
       set selection-clipboard "clipboard"
     '';
   };
+  home.sessionVariables.PIPX_DEFAULT_PYTHON = "${pkgs.python312}/bin/python3.12";
   home.packages = with pkgs; [
 
     # Shell
@@ -28,6 +29,7 @@
     pywalfox-native
     spicetify-cli
     pipx
+    python312
 
     # Development
     # kicad
