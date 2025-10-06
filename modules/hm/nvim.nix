@@ -5,6 +5,18 @@
   ...
 }:
 {
+  home.file.".markdownlint.jsonc" = lib.mkForce {
+    text = ''
+        {
+        "default": true,
+        "MD013": false, // Disable line length rule
+        "MD025": false
+      }
+    '';
+    force = true;
+    mutable = true;
+  };
+
   home.packages = [
     (
       let

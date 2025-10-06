@@ -359,8 +359,8 @@
         "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts"
       },
       "locked": {
-        "lastModified": 1759458474,
-        "narHash": "sha256-F124rdyY4GCk4N4wQ0kqvjhyjSBFsijppbttFiMdA4Q=",
+        "lastModified": 1759634159,
+        "narHash": "sha256-/hGgYRTOYM7dJBEKdq/H/yFRoggu3+zA6medlcIc93U=",
         "path": "/home/zander/Development/khanelivim",
         "type": "path"
       },

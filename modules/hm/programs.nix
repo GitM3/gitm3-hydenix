@@ -27,9 +27,12 @@
     pywal
     pywalfox-native
     spicetify-cli
+    pipx
 
     # Development
     # kicad
+    f3d
+    meshlab
 
     # utils / tools
     qbittorrent
