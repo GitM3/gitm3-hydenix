@@ -1,4 +1,11 @@
 { pkgs, lib, ... }:
+let
+  py312-bin-only = pkgs.symlinkJoin {
+    name = "python312-bin-only";
+    paths = [ pkgs.python312 ];
+    pathsToLink = [ "/bin" ]; # avoids /share/man collisions
+  };
+in
 {
   programs.zathura = {
     enable = true;
@@ -29,7 +36,7 @@
     pywalfox-native
     spicetify-cli
     pipx
-    (lib.lowPrio python312)
+    py312-bin-only
 
     # Development
     # kicad
