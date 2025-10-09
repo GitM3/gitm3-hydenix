@@ -6,8 +6,9 @@ let
   # Package declaration
   # ---------------------
 
-  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
-    inherit (inputs.hydenix.lib) system;
+  system = "x86_64-linux";
+  pkgs = import inputs.nixpkgs {
+    inherit system;
     config = {
       allowUnfree = true;
       # permittedInsecurePackages = [
@@ -15,7 +16,7 @@ let
       # ];
     };
     overlays = [
-      inputs.hydenix.lib.overlays
+      inputs.hydenix.overlays.default
       (final: prev: {
         userPkgs = import inputs.nixpkgs {
           config = {
@@ -48,9 +49,9 @@ in
   # Set pkgs for hydenix globally, any file that imports pkgs will use this
   nixpkgs.pkgs = pkgs;
   imports = [
-    inputs.hydenix.inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager
+    inputs.hydenix.nixosModules.default
     ./hardware-configuration.nix
-    inputs.hydenix.lib.nixOsModules
     ./modules/system
     # === GPU-specific configurations ===
 
@@ -59,23 +60,14 @@ in
       Most common drivers are below, but you can see more options here: https://github.com/NixOS/nixos-hardware
     */
 
-    #! EDIT THIS SECTION
-    # For NVIDIA setups
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+    # inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
+    inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
 
-    # For AMD setups
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-amd
+    # Additional Hardware Modules - Uncomment based on your system type:
+    # inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
+    inputs.nixos-hardware.nixosModules.common-pc-laptop # Laptops
+    inputs.nixos-hardware.nixosModules.common-pc-ssd # SSD storage
 
-    # === CPU-specific configurations ===
-    # For AMD CPUs
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-amd
-
-    # For Intel CPUs
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel
-
-    # === Other common modules ===
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
   home-manager = {
@@ -90,9 +82,7 @@ in
       { ... }:
       {
         imports = [
-          inputs.hydenix.lib.homeModules
-          # Nix-index-database - for comma and command-not-found
-          inputs.nix-index-database.homeModules.nix-index
+          inputs.hydenix.homeModules.default
           inputs.flatpaks.homeManagerModules.nix-flatpak
           ./modules/hm/flatpak.nix
           ./modules/hm
@@ -109,7 +99,7 @@ in
     timezone = "Asia/Tokyo"; # Change to your timezone
     locale = "en_ZA.UTF-8"; # Change to your preferred locale
 
-    audio.enable = true; # enable audio module
+    audio.enable = true; # enable audio module TODO: re-enable
     boot = {
       enable = true; # enable boot module
       useSystemdBoot = true; # disable for GRUB
@@ -121,8 +111,7 @@ in
     network.enable = true; # enable network module
     nix.enable = true; # enable nix module
     sddm = {
-      enable = true; # enable sddm module
-      theme = "Corners";
+      enable = false; # enable sddm module
     };
     system.enable = true; # enable system module
   };

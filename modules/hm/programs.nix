@@ -1,17 +1,4 @@
 { pkgs, lib, ... }:
-let
-  py313 = pkgs.python313.withPackages (
-    ps: with ps; [
-      evdev
-      pip
-      pipx
-      evdev
-      setuptools
-      wheel
-      pyqt6
-    ]
-  );
-in
 
 {
   programs.zathura = {
@@ -21,13 +8,11 @@ in
       set selection-clipboard "clipboard"
     '';
   };
-  home.sessionVariables = {
-    PIPX_DEFAULT_PYTHON = "python312";
-    # C_INCLUDE_PATH = "${pkgs.linuxHeaders}/include"; # This is for pipx
-  };
+  # home.sessionVariables = {
+  #   # C_INCLUDE_PATH = "${pkgs.linuxHeaders}/include"; # This is for pipx
+  # };
 
   home.packages = with pkgs; [
-    (lib.lowPrio py313)
     steam-unwrapped
 
     # Shell
@@ -52,7 +37,8 @@ in
     # Development
     # kicad
     f3d
-    meshlab
+    #meshlab
+    cmake
 
     # utils / tools
     qbittorrent
@@ -77,6 +63,7 @@ in
     })
     libreoffice-fresh
     pandoc
+    obs-studio
 
     # Productivity
     stretchly
@@ -96,47 +83,45 @@ in
     unzip
     tree
     wget
-    gcc
-    qt6.qtwayland
-    xorg.libxcb
-    zstd
-    zlib
-    glib
-    dbus
-    freetype
-    fontconfig
-    icu
-    xorg.libxcb
-    libxkbcommon
-    libGL
-    stdenv.cc.cc
-    stdenv.cc.cc.lib
-    glib
-    libxkbcommon
-    libGL
-    linuxHeaders
-    libevdev
-    nss
-    nspr
-    (pkgs.writeShellScriptBin "latexocr-run" ''
-            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:\
-      ${pkgs.zstd}/lib:\
-      ${pkgs.zlib}/lib:\
-      ${pkgs.glib}/lib:\
-      ${pkgs.dbus}/lib:\
-      ${pkgs.freetype}/lib:\
-      ${pkgs.nss}/lib:\
-      ${pkgs.nspr}/lib:\
-      ${pkgs.fontconfig}/lib:\
-      ${pkgs.icu}/lib:\
-      ${pkgs.xorg.libxcb}/lib:\
-      ${pkgs.libxkbcommon}/lib:\
-      ${pkgs.libGL}/lib:\
-      ${pkgs.qt6.qtbase}/lib:\
-      ${pkgs.qt6.qtwayland}/lib:''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-            : ''${QT_QPA_PLATFORM:=wayland}   # set to xcb to force X11
-            exec "$HOME/.local/bin/latexocr" "$@"
-    '')
+    # gcc
+    # qt6.qtwayland
+    # xorg.libxcb
+    # zlib
+    # glib
+    # dbus
+    # freetype
+    # fontconfig
+    # xorg.libxcb
+    # libxkbcommon
+    # libGL
+    # stdenv.cc.cc
+    # stdenv.cc.cc.lib
+    # glib
+    # libxkbcommon
+    # libGL
+    # linuxHeaders
+    # libevdev
+    # nss
+    # nspr
+    # (pkgs.writeShellScriptBin "latexocr-run" ''
+    #         export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:\
+    #   ${pkgs.zstd}/lib:\
+    #   ${pkgs.zlib}/lib:\
+    #   ${pkgs.glib}/lib:\
+    #   ${pkgs.dbus}/lib:\
+    #   ${pkgs.freetype}/lib:\
+    #   ${pkgs.nss}/lib:\
+    #   ${pkgs.nspr}/lib:\
+    #   ${pkgs.fontconfig}/lib:\
+    #   ${pkgs.icu}/lib:\
+    #   ${pkgs.xorg.libxcb}/lib:\
+    #   ${pkgs.libxkbcommon}/lib:\
+    #   ${pkgs.libGL}/lib:\
+    #   ${pkgs.qt6.qtbase}/lib:\
+    #   ${pkgs.qt6.qtwayland}/lib:''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+    #         : ''${QT_QPA_PLATFORM:=wayland}   # set to xcb to force X11
+    #         exec "$HOME/.local/bin/latexocr" "$@"
+    # '')
   ];
 
 }

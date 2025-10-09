@@ -22,7 +22,7 @@ in
       executable = true;
       source = ../../resources/scripts/dict.sh;
     };
-    # Override the keybindings.conf that Hydenix manages
+    # # Override the keybindings.conf that Hydenix manages
     ".config/hypr/keybindings.conf" = lib.mkForce {
       source = ../../resources/config/keybinds.conf;
     };

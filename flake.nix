@@ -14,6 +14,7 @@
       # Commit: github:richen604/hydenix/<commit-hash>
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
     my_nvim = {
@@ -22,9 +23,10 @@
     # khanelivim = {
     #   url = "github:khaneliman/khanelivim/1995815bfad345a13befcfdcaa8d1a5c34588d0d";
     # };
-    # Nix-index-database - for comma and command-not-found
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -34,8 +36,9 @@
     let
       HOSTNAME = "zander";
 
-      hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
-        inherit (inputs.hydenix.lib) system;
+      system = "x86_64-linux";
+      hydenixConfig = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {
           inherit inputs;
         };
