@@ -1,11 +1,18 @@
 { pkgs, lib, ... }:
 let
-  py312-bin-only = pkgs.symlinkJoin {
-    name = "python312-bin-only";
-    paths = [ pkgs.python312 ];
-    pathsToLink = [ "/bin" ]; # avoids /share/man collisions
-  };
+  py313 = pkgs.python313.withPackages (
+    ps: with ps; [
+      evdev
+      pip
+      pipx
+      evdev
+      setuptools
+      wheel
+      pyqt6
+    ]
+  );
 in
+
 {
   programs.zathura = {
     enable = true;
@@ -14,8 +21,14 @@ in
       set selection-clipboard "clipboard"
     '';
   };
-  home.sessionVariables.PIPX_DEFAULT_PYTHON = "${pkgs.python312}/bin/python3.12";
+  home.sessionVariables = {
+    PIPX_DEFAULT_PYTHON = "python312";
+    # C_INCLUDE_PATH = "${pkgs.linuxHeaders}/include"; # This is for pipx
+  };
+
   home.packages = with pkgs; [
+    (lib.lowPrio py313)
+    steam-unwrapped
 
     # Shell
     bat
@@ -35,8 +48,6 @@ in
     pywal
     pywalfox-native
     spicetify-cli
-    pipx
-    py312-bin-only
 
     # Development
     # kicad
@@ -85,6 +96,47 @@ in
     unzip
     tree
     wget
+    gcc
+    qt6.qtwayland
+    xorg.libxcb
+    zstd
+    zlib
+    glib
+    dbus
+    freetype
+    fontconfig
+    icu
+    xorg.libxcb
+    libxkbcommon
+    libGL
+    stdenv.cc.cc
+    stdenv.cc.cc.lib
+    glib
+    libxkbcommon
+    libGL
+    linuxHeaders
+    libevdev
+    nss
+    nspr
+    (pkgs.writeShellScriptBin "latexocr-run" ''
+            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:\
+      ${pkgs.zstd}/lib:\
+      ${pkgs.zlib}/lib:\
+      ${pkgs.glib}/lib:\
+      ${pkgs.dbus}/lib:\
+      ${pkgs.freetype}/lib:\
+      ${pkgs.nss}/lib:\
+      ${pkgs.nspr}/lib:\
+      ${pkgs.fontconfig}/lib:\
+      ${pkgs.icu}/lib:\
+      ${pkgs.xorg.libxcb}/lib:\
+      ${pkgs.libxkbcommon}/lib:\
+      ${pkgs.libGL}/lib:\
+      ${pkgs.qt6.qtbase}/lib:\
+      ${pkgs.qt6.qtwayland}/lib:''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+            : ''${QT_QPA_PLATFORM:=wayland}   # set to xcb to force X11
+            exec "$HOME/.local/bin/latexocr" "$@"
+    '')
   ];
 
 }

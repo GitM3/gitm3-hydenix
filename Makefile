@@ -100,12 +100,12 @@ deep-clean: ## Aggressive cleanup (removes ALL old generations)
 		printf "$(BLUE)ℹ️  Deep cleanup cancelled$(NC)"; \
 	fi
 
-clean-generations: ## Remove system generations older than 30 days (keeps ability to rollback recent changes)
-	@printf "$(YELLOW)🗑️  Removing system generations older than 30 days...$(NC)"
+clean-generations: ## Remove system generations older than 14 days (keeps ability to rollback recent changes)
+	@printf "$(YELLOW)🗑️  Removing system generations older than 14 days...$(NC)"
 	@printf "$(BLUE)ℹ️  This keeps recent generations for rollback capability$(NC)"
-	sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system +30
+	sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system +14
 	sudo nix-collect-garbage
-	@printf "$(GREEN)✅ Old generations cleaned (kept last 30 days)$(NC)"
+	@printf "$(GREEN)✅ Old generations cleaned (kept last 14 days)$(NC)"
 
 gc: ## Garbage collect (alias for clean)
 	@make clean
