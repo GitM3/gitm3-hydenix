@@ -19,6 +19,7 @@ in
     extraConfig = ''
       set sandbox none
       set selection-clipboard "clipboard"
+      set recolor-keephue true
     '';
   };
   home.sessionVariables = {
@@ -48,7 +49,8 @@ in
     pywal
     pywalfox-native
     spicetify-cli
-
+    youtube-tui
+    yt-dlp
     # Development
     # kicad
     f3d
@@ -77,6 +79,9 @@ in
     })
     libreoffice-fresh
     pandoc
+    voicevox
+    voicevox-core
+    voicevox-engine
 
     # Productivity
     stretchly
@@ -97,6 +102,8 @@ in
     tree
     wget
     gcc
+    ueberzugpp
+
     qt6.qtwayland
     xorg.libxcb
     zstd
