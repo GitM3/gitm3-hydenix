@@ -89,6 +89,7 @@ in
     zotero
     qnotero
     wlvncc
+    turbovnc
 
     # deps
     mpv

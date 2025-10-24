@@ -110,13 +110,14 @@
     GOLDENDICT_FORCE_WAYLAND = 1;
   };
   hardware.enableRedistributableFirmware = true;
-  # virtualisation.docker = {
-  #   enable = true;
-  # };
-  virtualisation.podman = {
+  virtualisation.docker.rootless = {
     enable = true;
-    dockerCompat = true;
-    dockerSocket.enable = true;
+    setSocketVariable = true;
   };
+  # virtualisation.podman = {
+  #   enable = true;
+  #   dockerCompat = true;
+  #   dockerSocket.enable = true;
+  # };
 
 }
