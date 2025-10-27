@@ -90,6 +90,7 @@ in
     qnotero
     wlvncc
     turbovnc
+    obs-studio
 
     # deps
     mpv
@@ -145,6 +146,8 @@ in
             : ''${QT_QPA_PLATFORM:=wayland}   # set to xcb to force X11
             exec "$HOME/.local/bin/latexocr" "$@"
     '')
+    blender
+    usbutils
   ];
 
 }

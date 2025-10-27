@@ -141,6 +141,7 @@ in
     ];
     shell = pkgs.zsh;
   };
+  users.extraGroups.docker.members = [ "zander" ];
   nix.settings.trusted-users = [
     "root"
     "zander"

@@ -81,28 +81,37 @@
     devenv
     cachix
     librealsense-gui
-    nix-ld
+    # nix-ld
+
+    #wine stuff
+    wineWowPackages.stable
+    wine
+    (wine.override { wineBuild = "wine64"; })
+    wine64
+    winetricks
+    wineWowPackages.waylandFull
+
   ];
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc.lib
-    zstd
-    zlib
-    glib
-    dbus
-    nss
-    nspr
-    freetype
-    fontconfig
-    icu
-    nss
-    nspr
-    xorg.libxcb
-    xorg.libxkbfile
-    libxkbcommon
-    libGL
-    qt6.qtbase
-    qt6.qtwayland
-  ];
+  # programs.nix-ld.libraries = with pkgs; [
+  #   stdenv.cc.cc.lib
+  #   zstd
+  #   zlib
+  #   glib
+  #   dbus
+  #   nss
+  #   nspr
+  #   freetype
+  #   fontconfig
+  #   icu
+  #   nss
+  #   nspr
+  #   xorg.libxcb
+  #   xorg.libxkbfile
+  #   libxkbcommon
+  #   libGL
+  #   qt6.qtbase
+  #   qt6.qtwayland
+  # ];
 
   environment.variables = {
     EDITOR = "nvim";
