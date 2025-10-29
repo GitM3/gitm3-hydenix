@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./audio.nix
   ];
 
   networking = {
@@ -90,6 +91,7 @@
     wine64
     winetricks
     wineWowPackages.waylandFull
+    wineasio
 
   ];
   # programs.nix-ld.libraries = with pkgs; [
