@@ -1,5 +1,6 @@
 # home.nix
-{ lib, ... }: {
+{ lib, ... }:
+{
 
   # Add a new remote. Keep the default one (flathub)
   # services.flatpak.remotes = lib.mkOptionDefault [{
@@ -12,7 +13,14 @@
 
   # Add here the flatpaks you want to install
   services.flatpak.packages = [
-    { appId = "com.com.usebottles.bottles"; origin = "flathub"; }
+    {
+      appId = "com.com.usebottles.bottles";
+      origin = "flathub";
+    }
+    {
+      appId = "com.github.tchx84.Flatseal";
+      origin = "flathub";
+    }
     #"com.obsproject.Studio"
     #"im.riot.Riot"
 

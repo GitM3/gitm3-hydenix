@@ -29,7 +29,7 @@ in
 
   home.packages = with pkgs; [
     (lib.lowPrio py313)
-    steam-unwrapped
+    #    steam-unwrapped
 
     # Shell
     bat
@@ -148,6 +148,11 @@ in
     '')
     blender
     usbutils
+    steam
+
+    #audio
+    helvum
+    rtaudio
   ];
 
 }

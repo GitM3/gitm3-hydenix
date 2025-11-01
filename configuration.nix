@@ -109,7 +109,7 @@ in
     timezone = "Asia/Tokyo"; # Change to your timezone
     locale = "en_ZA.UTF-8"; # Change to your preferred locale
 
-    audio.enable = true; # enable audio module
+    audio.enable = false; # enable audio module
     boot = {
       enable = true; # enable boot module
       useSystemdBoot = true; # disable for GRUB
@@ -138,6 +138,9 @@ in
       "dialout"
       "sudo"
       "docker"
+      "pipewire"
+      "audio"
+      "rtkit"
     ];
     shell = pkgs.zsh;
   };
