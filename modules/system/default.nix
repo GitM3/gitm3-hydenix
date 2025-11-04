@@ -32,10 +32,21 @@
       8080
     ];
   };
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security = {
+    pam.services.sddm.enableGnomeKeyring = true;
+    rtkit.enable = true;
+  };
+  users.groups.plugdev = { };
+
   services = {
     tailscale.enable = true;
-    udev.packages = [ pkgs.librealsense ];
+    udev.packages = [
+      (pkgs.writeTextFile {
+        name = "realsense-udev-rules";
+        destination = "/etc/udev/rules.d/99-realsense-libusb.rules";
+        text = builtins.readFile ./dev_rules/99-realsense-libusb.rules;
+      })
+    ];
     gnome.gnome-keyring.enable = true;
     printing = {
       enable = true;
@@ -76,12 +87,15 @@
     fuse3
     opentabletdriver
     podman-compose
+    curl
+    zenity
 
     # Development
     distrobox
     devenv
     cachix
     librealsense-gui
+    librealsense
     # nix-ld
 
     #wine stuff

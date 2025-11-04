@@ -138,6 +138,7 @@ in
       "dialout"
       "sudo"
       "docker"
+      "plugdev"
       "pipewire"
       "audio"
       "rtkit"

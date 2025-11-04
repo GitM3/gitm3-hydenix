@@ -43,6 +43,7 @@ in
     fastfetch
     nodejs_20
     htop
+    net-tools
 
     # Zsh
     zsh-you-should-use
