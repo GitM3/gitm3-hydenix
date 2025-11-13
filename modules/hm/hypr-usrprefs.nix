@@ -24,8 +24,8 @@
       # Start fcitx5 daemon on Hyprland startup
       exec-once = fcitx5 -d
       exec-once = gammastep-indicator &
-      exec-once = stretchly &
       exec-once = qnotero &
+      exec-once = flatpak run net.hovancik.Stretchly &
     '';
   };
 }

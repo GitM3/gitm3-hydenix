@@ -12,9 +12,10 @@
 
   networking = {
 
-    useDHCP = lib.mkDefault true;
+    #useDHCP = lib.mkDefault true;
     networkmanager.enable = true;
-    interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
+    networkmanager.wifi.macAddress = "preserve";
+    #interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
     nameservers = [
       "8.8.8.8"
       "1.1.1.1"
@@ -31,7 +32,13 @@
       443
       8080
     ];
+    nat = {
+      enable = true;
+      externalInterface = "wlp0s20f3";
+      internalInterfaces = [ "enp0s31f6" ];
+    };
   };
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   security = {
     pam.services.sddm.enableGnomeKeyring = true;
     rtkit.enable = true;

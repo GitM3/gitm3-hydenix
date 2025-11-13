@@ -18,7 +18,7 @@
           origin = "flathub";
         }
         {
-          appId = "com.com.github.tchx84.Flatseal";
+          appId = "net.hovancik.Stretchly";
           origin = "flathub";
         }
       ];

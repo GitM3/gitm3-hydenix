@@ -56,6 +56,7 @@ in
     # kicad
     f3d
     meshlab
+    codex
 
     # utils / tools
     qbittorrent
@@ -85,7 +86,7 @@ in
     voicevox-engine
 
     # Productivity
-    stretchly
+    #stretchly
     slack
     zotero
     qnotero
