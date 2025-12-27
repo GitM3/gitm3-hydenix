@@ -20,11 +20,21 @@
       "8.8.8.8"
       "1.1.1.1"
     ];
+    firewall.enable = lib.mkForce false;
     firewall.allowedUDPPorts = [
       67
       68
       3478
       41641
+      # ROS
+      7400
+      7401
+      7410
+      7411
+      38150
+      38151
+      38406
+      38407
     ];
     firewall.allowedTCPPorts = [
       22

@@ -29,5 +29,8 @@
     playerctl
     jack2
     qjackctl
+    qpwgraph
+    pulseaudio-ctl
+
   ];
 }

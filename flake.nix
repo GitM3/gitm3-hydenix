@@ -16,13 +16,17 @@
       url = "github:richen604/hydenix";
     };
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
-    my_nvim = {
-      url = "path:/home/zander/Development/khanelivim";
-    };
+    # my_nvim = {
+    #   url = "path:/home/zander/Development/khanelivim";
+    # };
     # khanelivim = {
     #   url = "github:khaneliman/khanelivim/1995815bfad345a13befcfdcaa8d1a5c34588d0d";
     # };
     # Nix-index-database - for comma and command-not-found
+    inputs.nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -10,10 +10,11 @@
     ./hypr-idle.nix
     ./sync.nix
     ./redshift.nix
-    ./nvim.nix
+    #./nvim.nix
     ./direnv.nix
     ./zellij.nix
     ./waybar.nix
+    ./nvim
   ];
 
   home.sessionVariables = {

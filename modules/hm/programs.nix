@@ -57,6 +57,8 @@ in
     f3d
     meshlab
     codex
+    deskflow
+    xclip
 
     # utils / tools
     qbittorrent
@@ -151,7 +153,7 @@ in
     blender
     usbutils
     steam
-
+    gimp
     #audio
     helvum
     rtaudio
