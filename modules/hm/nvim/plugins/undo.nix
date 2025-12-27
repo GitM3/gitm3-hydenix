@@ -1,3 +1,3 @@
 {
-  programs.nixvim.plugins.undotree.enable = true;
+  plugins.undotree.enable = true;
 }

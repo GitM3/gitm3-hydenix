@@ -23,8 +23,8 @@
     #   url = "github:khaneliman/khanelivim/1995815bfad345a13befcfdcaa8d1a5c34588d0d";
     # };
     # Nix-index-database - for comma and command-not-found
-    inputs.nixvim = {
-      url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {

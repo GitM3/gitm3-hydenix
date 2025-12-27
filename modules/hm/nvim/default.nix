@@ -9,6 +9,7 @@
       ./keymaps.nix
       ./plugins
       ./lsp
+      ./themes/tokyonight.nix 
     ];
   };
 }

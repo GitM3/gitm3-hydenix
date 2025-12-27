@@ -1,5 +1,6 @@
 {
-  programs.nixvim.opts = {
+  globals.mapleader = " ";
+  opts = {
     number = true;
     relativenumber = true;
 
@@ -8,7 +9,7 @@
     tabstop = 2;
 
     undofile = true;
-    undodir = "~/.local/state/nvim/undo";
+    undodir = "/home/zander/.local/state/nvim/undo";
 
     termguicolors = true;
     signcolumn = "yes";

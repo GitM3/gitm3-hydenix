@@ -2,6 +2,7 @@
 
 {
   imports = [
+    inputs.nixvim.homeModules.nixvim
     ./keybinds.nix
     ./monitors.nix
     ./programs.nix

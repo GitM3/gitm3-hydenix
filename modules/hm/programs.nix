@@ -1,19 +1,21 @@
-{ pkgs, lib, ... }:
-let
-  py313 = pkgs.python313.withPackages (
-    ps: with ps; [
-      evdev
-      pip
-      pipx
-      evdev
-      setuptools
-      wheel
-      pyqt6
-    ]
-  );
-in
-
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  py313 = pkgs.python313.withPackages (
+    ps:
+      with ps; [
+        evdev
+        pip
+        pipx
+        evdev
+        setuptools
+        wheel
+        pyqt6
+      ]
+  );
+in {
   programs.zathura = {
     enable = true;
     extraConfig = ''
@@ -131,25 +133,6 @@ in
     libevdev
     nss
     nspr
-    (pkgs.writeShellScriptBin "latexocr-run" ''
-            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:\
-      ${pkgs.zstd}/lib:\
-      ${pkgs.zlib}/lib:\
-      ${pkgs.glib}/lib:\
-      ${pkgs.dbus}/lib:\
-      ${pkgs.freetype}/lib:\
-      ${pkgs.nss}/lib:\
-      ${pkgs.nspr}/lib:\
-      ${pkgs.fontconfig}/lib:\
-      ${pkgs.icu}/lib:\
-      ${pkgs.xorg.libxcb}/lib:\
-      ${pkgs.libxkbcommon}/lib:\
-      ${pkgs.libGL}/lib:\
-      ${pkgs.qt6.qtbase}/lib:\
-      ${pkgs.qt6.qtwayland}/lib:''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-            : ''${QT_QPA_PLATFORM:=wayland}   # set to xcb to force X11
-            exec "$HOME/.local/bin/latexocr" "$@"
-    '')
     blender
     usbutils
     steam
@@ -157,6 +140,37 @@ in
     #audio
     helvum
     rtaudio
-  ];
+    #zathura-pdf-mupdf
 
+    alejandra
+    nixpkgs-fmt
+    prettierd
+    nixfmt-classic
+    stylua
+    python312Packages.flake8
+    python312Packages.autopep8
+    yapf
+    black
+    isort
+    hadolint
+    shfmt
+    (pkgs.texlive.combined.scheme-full.withPackages (
+      ps:
+        with ps; [
+          # Japanese LaTeX engines and macros
+          platex
+          uplatex
+          ptex
+          ptex-base
+          ptex-fonts
+          bxwareki
+          japanese-otf
+          jsclasses
+
+          # Fonts commonly expected in Japanese environments
+          haranoaji
+          ipaex
+        ]
+    ))
+  ];
 }
