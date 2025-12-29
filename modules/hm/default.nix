@@ -1,7 +1,10 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
+    ./tex.nix
     inputs.nixvim.homeModules.nixvim
     ./keybinds.nix
     ./monitors.nix
@@ -11,7 +14,6 @@
     ./hypr-idle.nix
     ./sync.nix
     ./redshift.nix
-    #./nvim.nix
     ./direnv.nix
     ./zellij.nix
     ./waybar.nix
@@ -58,7 +60,6 @@
       init.defaultBranch = "main";
       pull.rebase = false;
       push.autoSetupRemote = true;
-
     };
   };
 

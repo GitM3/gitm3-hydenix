@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   plugins.vimtex = {
     enable = true;
     settings = {

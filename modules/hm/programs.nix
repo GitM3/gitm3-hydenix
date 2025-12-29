@@ -140,6 +140,7 @@ in {
     #audio
     helvum
     rtaudio
+    ffmpeg
     #zathura-pdf-mupdf
 
     alejandra
@@ -154,23 +155,6 @@ in {
     isort
     hadolint
     shfmt
-    (pkgs.texlive.combined.scheme-full.withPackages (
-      ps:
-        with ps; [
-          # Japanese LaTeX engines and macros
-          platex
-          uplatex
-          ptex
-          ptex-base
-          ptex-fonts
-          bxwareki
-          japanese-otf
-          jsclasses
-
-          # Fonts commonly expected in Japanese environments
-          haranoaji
-          ipaex
-        ]
-    ))
+    wf-recorder
   ];
 }

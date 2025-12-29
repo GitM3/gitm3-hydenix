@@ -1,4 +1,8 @@
 {
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./snacks.nix
     ./treesitter.nix
@@ -7,5 +11,6 @@
     ./harpoon.nix
     ./yazi.nix
     ./latex.nix
+    ./snippets.nix
   ];
 }

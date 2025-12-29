@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   plugins = {
     conform-nvim = {
       enable = true;
@@ -101,6 +105,7 @@
             texlab = {
               build = {
                 executable = "latexmk";
+                args = ["-pdfdvi" "-interaction=nonstopmode"];
                 onSave = true;
               };
               forwardSearch = {
@@ -133,6 +138,10 @@
           }
           {
             name = "buffer";
+            keywordLength = 3;
+          }
+          {
+            name = "luasnip";
             keywordLength = 3;
           }
         ];

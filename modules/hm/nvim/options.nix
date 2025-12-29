@@ -14,5 +14,6 @@
     termguicolors = true;
     signcolumn = "yes";
     updatetime = 250;
+    clipboard.register = "unnamedplus";
   };
 }
