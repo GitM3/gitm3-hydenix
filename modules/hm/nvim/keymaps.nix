@@ -44,6 +44,50 @@
     }
     {
       mode = "n";
+      key = "<leader>1";
+      action.__rawLua = ''
+        require("harpoon"):list():select(1)
+      '';
+    }
+    {
+      mode = "n";
+      key = "<leader>2";
+      action.__rawLua = ''
+        require("harpoon"):list():select(2)
+      '';
+    }
+    {
+      mode = "n";
+      key = "<leader>3";
+      action.__rawLua = ''
+        require("harpoon"):list():select(3)
+      '';
+    }
+    {
+      mode = "n";
+      key = "<leader>hh";
+      action.__rawLua = ''
+        require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+      '';
+    }
+    {
+      mode = "n";
+      key = "<leader>ht";
+      action.__rawLua = ''
+        require("telescope").extensions.harpoon.marks()
+      '';
+    }
+
+    {
+      mode = "n";
+      key = "<leader>ha";
+      action.__rawLua = ''
+        require("harpoon"):list():add()
+      '';
+      options.desc = "Harpoon add file";
+    }
+    {
+      mode = "n";
       key = "<leader>uu";
       action = "<cmd>UndotreeToggle<cr>";
       options.desc = "Undo tree";
