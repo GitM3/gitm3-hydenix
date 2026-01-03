@@ -14,6 +14,59 @@
     }
     {
       mode = "n";
+      key = "<C-j>";
+      action = "<cmd>wincmd j<cr>";
+      options.desc = "Window down";
+    }
+
+    {
+      mode = "n";
+      key = "<C-k>";
+      action = "<cmd>wincmd k<cr>";
+      options.desc = "Window up";
+    }
+    {
+      mode = "n";
+      key = "<C-Up>";
+      action = "<cmd>resize +2<cr>";
+      options.desc = "Increase height";
+    }
+
+    {
+      mode = "n";
+      key = "<C-Down>";
+      action = "<cmd>resize -2<cr>";
+      options.desc = "Decrease height";
+    }
+
+    {
+      mode = "n";
+      key = "<C-Left>";
+      action = "<cmd>vertical resize -2<cr>";
+      options.desc = "Decrease width";
+    }
+    {
+      mode = "n";
+      key = "<leader>|";
+      action = "<cmd>vsplit<cr>";
+      options.desc = "Vertical split";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>-";
+      action = "<cmd>split<cr>";
+      options.desc = "Horizontal split";
+    }
+    {
+      mode = "n";
+      key = "<C-Right>";
+      action = "<cmd>vertical resize +2<cr>";
+      options.desc = "Increase width";
+    }
+    #---------------------------------------------
+    {
+      mode = "n";
       key = "<leader>e";
       action = ":Neotree toggle<CR>";
       options.desc = "Open Neotree";
@@ -36,12 +89,32 @@
       action = "<cmd>Telescope live_grep<cr>";
       options.desc = "Find word (ripgrep)";
     }
+    #-------------------------------------------
     {
       mode = "n";
-      key = "<leader>b";
+      key = "<leader>bb";
       action = "<cmd>Telescope buffers<cr>";
       options.desc = "Buffers";
     }
+    {
+      mode = "n";
+      key = "<leader>bd";
+      action = "<cmd>bdelete<cr>";
+      options.desc = "Delete buffer";
+    }
+    {
+      mode = "n";
+      key = "<leader>bn";
+      action = "<cmd>bnext<cr>";
+      options.desc = "Next buffer";
+    }
+    {
+      mode = "n";
+      key = "<leader>bp";
+      action = "<cmd>bprevious<cr>";
+      options.desc = "Previous buffer";
+    }
+    #---------------------------------------
     {
       mode = "n";
       key = "<leader>uu";
@@ -102,6 +175,68 @@
       key = "<leader>li";
       action = "<cmd>VimtexInfo<cr>";
       options.desc = "VimTeX info";
+    }
+    #------------------------------------------------------
+    {
+      mode = "n";
+      key = "gd";
+      action = "<cmd>lua vim.lsp.buf.definition()<cr>";
+      options.desc = "Go to definition";
+    }
+
+    {
+      mode = "n";
+      key = "gD";
+      action = "<cmd>lua vim.lsp.buf.declaration()<cr>";
+      options.desc = "Go to declaration";
+    }
+
+    {
+      mode = "n";
+      key = "gr";
+      action = "<cmd>Telescope lsp_references<cr>";
+      options.desc = "References";
+    }
+
+    {
+      mode = "n";
+      key = "gi";
+      action = "<cmd>Telescope lsp_implementations<cr>";
+      options.desc = "Implementations";
+    }
+    {
+      mode = "n";
+      key = "<leader>ls";
+      action = "<cmd>Telescope lsp_document_symbols<cr>";
+      options.desc = "Document symbols";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>lS";
+      action = "<cmd>Telescope lsp_workspace_symbols<cr>";
+      options.desc = "Workspace symbols";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>lr";
+      action = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      options.desc = "Rename symbol";
+    }
+    #------------------------------------------
+    {
+      mode = ["n" "x" "o"];
+      key = "s";
+      action = "<Plug>(leap-forward)";
+      options.desc = "Leap forward";
+    }
+
+    {
+      mode = ["n" "x" "o"];
+      key = "S";
+      action = "<Plug>(leap-backward)";
+      options.desc = "Leap backward";
     }
   ];
 }
