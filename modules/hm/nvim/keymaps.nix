@@ -44,36 +44,6 @@
     }
     {
       mode = "n";
-      key = "<leader>ha";
-      action = "<cmd>HarpoonAddFile<cr>";
-      options.desc = "Harpoon add file";
-    }
-    {
-      mode = "n";
-      key = "<leader>hh";
-      action = "<cmd>Telescope harpoon marks<cr>";
-      options.desc = "Harpoon quick menu";
-    }
-    {
-      mode = "n";
-      key = "<leader>1";
-      action = "<cmd>HarpoonNavFile 1<cr>";
-      options.desc = "Harpoon file 1";
-    }
-    {
-      mode = "n";
-      key = "<leader>2";
-      action = "<cmd>HarpoonNavFile 2<cr>";
-      options.desc = "Harpoon file 2";
-    }
-    {
-      mode = "n";
-      key = "<leader>3";
-      action = "<cmd>HarpoonNavFile 3<cr>";
-      options.desc = "Harpoon file 3";
-    }
-    {
-      mode = "n";
       key = "<leader>uu";
       action = "<cmd>UndotreeToggle<cr>";
       options.desc = "Undo tree";
