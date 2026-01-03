@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   globals.mapleader = " ";
   opts = {
     number = true;
@@ -14,6 +14,14 @@
     termguicolors = true;
     signcolumn = "yes";
     updatetime = 250;
-    clipboard.register = "unnamedplus";
+    clipboard = {
+      register = "unnamedplus";
+      providers = {
+        wl-copy = {
+          enable = true;
+          package = pkgs.wl-clipboard;
+        };
+      };
+    };
   };
 }

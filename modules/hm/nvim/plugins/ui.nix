@@ -72,5 +72,6 @@
     image.enable = true;
     noice.enable = true;
     web-devicons.enable = true;
+    leap.enable = true;
   };
 }

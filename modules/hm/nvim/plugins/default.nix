@@ -13,4 +13,8 @@
     ./latex.nix
     ./snippets.nix
   ];
+  plugins.lz-n = {
+    enable = true;
+    autoLoad = true;
+  };
 }
