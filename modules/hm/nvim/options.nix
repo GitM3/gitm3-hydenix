@@ -14,14 +14,6 @@
     termguicolors = true;
     signcolumn = "yes";
     updatetime = 250;
-    clipboard = {
-      register = "unnamedplus";
-      providers = {
-        wl-copy = {
-          enable = true;
-          package = pkgs.wl-clipboard;
-        };
-      };
-    };
+    clipboard = "unnamedplus";
   };
 }
