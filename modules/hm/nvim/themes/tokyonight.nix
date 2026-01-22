@@ -1,7 +1,7 @@
 {
   colorschemes = {
     tokyonight = {
-      enable = true;
+      enable = false;
       settings = {
         transparent = true;
         style = "storm"; # Options: "storm", "night", "day", "moon"
@@ -12,6 +12,7 @@
         mini_completion = true;
         telescope = true;
         telescope_borders = false;
+        leap = true;
       };
     };
   };

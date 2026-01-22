@@ -16,6 +16,17 @@
     todo-comments = {
       enable = true;
     };
+    lualine.enable = true;
+    web-devicons.enable = true;
+    telescope = {
+      enable = true;
+
+      settings.defaults = {
+        layout_strategy = "horizontal";
+        layout_config.prompt_position = "top";
+        sorting_strategy = "ascending";
+      };
+    };
     neo-tree = {
       enable = true;
       settings = {
@@ -71,7 +82,8 @@
 
     image.enable = true;
     noice.enable = true;
-    web-devicons.enable = true;
-    leap.enable = true;
+    leap = {
+      enable = true;
+    };
   };
 }

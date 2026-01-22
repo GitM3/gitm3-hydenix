@@ -92,6 +92,15 @@
     #-------------------------------------------
     {
       mode = "n";
+      key = "<M-Tab>";
+      action = "<C-^>";
+      options = {
+        desc = "Toggle previous buffer (Alt-Tab)";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>bb";
       action = "<cmd>Telescope buffers<cr>";
       options.desc = "Buffers";
@@ -224,19 +233,40 @@
       action = "<cmd>lua vim.lsp.buf.rename()<cr>";
       options.desc = "Rename symbol";
     }
-    #------------------------------------------
+    {
+      mode = "n";
+      key = "<leader>pi";
+      action = ":PasteImg<CR>";
+      options.desc = "Paste image from clipboard";
+    }
     {
       mode = ["n" "x" "o"];
       key = "s";
       action = "<Plug>(leap-forward)";
-      options.desc = "Leap forward";
+      options = {
+        desc = "Leap forward";
+        silent = true;
+      };
     }
 
     {
       mode = ["n" "x" "o"];
       key = "S";
       action = "<Plug>(leap-backward)";
-      options.desc = "Leap backward";
+      options = {
+        desc = "Leap backward";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "gs";
+      action = "<Plug>(leap-from-window)";
+      options = {
+        desc = "Leap from window";
+        silent = true;
+      };
     }
   ];
 }

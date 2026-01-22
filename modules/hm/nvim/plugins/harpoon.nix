@@ -56,10 +56,12 @@
       ];
     };
 
-    which-key.settings.spec = {
-      __unkeyed-1 = "<leader>h";
-      group = "Harpoon";
-      icon = "󱡀 ";
-    };
+    which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>h";
+        group = "Harpoon";
+        icon = "󱡀 ";
+      }
+    ];
   };
 }
