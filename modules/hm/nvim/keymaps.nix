@@ -126,6 +126,13 @@
     #---------------------------------------
     {
       mode = "n";
+      key = "<leader>a";
+      action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
+      options.desc = "Code actions";
+    }
+    #---------------------------------------
+    {
+      mode = "n";
       key = "<leader>uu";
       action = "<cmd>UndotreeToggle<cr>";
       options.desc = "Undo tree";

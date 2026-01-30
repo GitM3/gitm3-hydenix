@@ -142,6 +142,7 @@ in {
     rtaudio
     ffmpeg
     #zathura-pdf-mupdf
+    ltex-ls
 
     alejandra
     nixpkgs-fmt

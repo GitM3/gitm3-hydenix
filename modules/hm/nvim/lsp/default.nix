@@ -99,6 +99,7 @@
         dockerls.enable = true; # Docker
         docker_compose_language_service.enable = true; # Docker compose
         bashls.enable = true; # Bash
+        ltex.enable = true; # spell and grammar
         texlab = {
           enable = true;
           settings = {
@@ -106,7 +107,7 @@
               build = {
                 executable = "latexmk";
                 args = ["-pdfdvi" "-interaction=nonstopmode"];
-                onSave = true;
+                onSave = false;
               };
               forwardSearch = {
                 executable = "zathura";
