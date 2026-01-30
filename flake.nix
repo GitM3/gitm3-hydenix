@@ -4,7 +4,8 @@
   inputs = {
     # User's nixpkgs - for user packages
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      # url = "github:nixos/nixpkgs/nixos-unstable";
+      follows = "hydenix/nixpkgs";
     };
     # Hydenix and its nixpkgs - kept separate to avoid conflicts
     hydenix = {
@@ -31,27 +32,29 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
   };
 
-  outputs =
-    { ... }@inputs:
-    let
-      HOSTNAME = "zander";
-
-      hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
-        inherit (inputs.hydenix.lib) system;
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./modules/system/japanese.nix
-          ./configuration.nix
-        ];
+  outputs = {...} @ inputs: let
+    HOSTNAME = "zander";
+    system = "x86_64-linux";
+    hydenixConfig = inputs.nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit inputs;
       };
-
-    in
-    {
-      nixosConfigurations.nixos = hydenixConfig;
-      nixosConfigurations.${HOSTNAME} = hydenixConfig;
+      modules = [
+        ./modules/system/japanese.nix
+        ./configuration.nix
+      ];
     };
+    vmConfig = inputs.hydenix.lib.vmConfig {
+      inherit inputs;
+      nixosConfiguration = hydenixConfig;
+    };
+  in {
+    nixosConfigurations.default = hydenixConfig;
+    nixosConfigurations.${HOSTNAME} = hydenixConfig;
+    packages.${system}.vm = vmConfig.config.system.build.vm;
+  };
 }

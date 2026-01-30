@@ -25,5 +25,6 @@ in {
     default = my_tex;
     description = "Japanese TeX Live distribution";
   };
-  config.home.packages = [my_tex];
+  # config.home.packages = [my_tex];
+  config = {};
 }

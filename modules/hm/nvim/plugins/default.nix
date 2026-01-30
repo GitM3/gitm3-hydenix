@@ -1,9 +1,9 @@
 {
   pkgs,
   config,
+  my,
   ...
-}:
-{
+}: {
   imports = [
     ./snacks.nix
     ./treesitter.nix

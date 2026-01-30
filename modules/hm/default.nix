@@ -42,13 +42,16 @@
   ];
   programs.git = {
     enable = true;
-    userEmail = "zander@polsons.info";
-    userName = "GitM3";
-    extraConfig = {
-      # === Git Credential Manager (GCM) ===
+
+    settings = {
+      user = {
+        name = "GitM3";
+        email = "zander@polsons.info";
+      };
+
       credential = {
         helper = "manager";
-        credentialStore = "secretservice"; # Uses GNOME Keyring
+        credentialStore = "secretservice";
         autoDetectTimeout = 30;
       };
 
@@ -56,7 +59,7 @@
         provider = "github";
         helper = "manager";
       };
-      # === Git settings for better OAuth experience ===
+
       init.defaultBranch = "main";
       pull.rebase = false;
       push.autoSetupRemote = true;
@@ -126,7 +129,6 @@
     social = {
       enable = false; # enable social module
       discord.enable = false; # enable discord module
-      webcord.enable = false; # enable webcord module
       vesktop.enable = false; # enable vesktop module
     };
     spotify.enable = true; # enable spotify module

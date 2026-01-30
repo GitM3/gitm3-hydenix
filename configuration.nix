@@ -1,79 +1,15 @@
 {
   inputs,
+  pkgs,
   ...
-}:
-let
-  # Package declaration
-  # ---------------------
-
-  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
-    inherit (inputs.hydenix.lib) system;
-    config = {
-      allowUnfree = true;
-      # permittedInsecurePackages = [
-      #   ""
-      # ];
-    };
-    overlays = [
-      inputs.hydenix.lib.overlays
-      (final: prev: {
-        userPkgs = import inputs.nixpkgs {
-          config = {
-            allowUnfree = true;
-          };
-        };
-      })
-      (final: prev: {
-        python3Packages = prev.python3Packages.overrideScope (
-          pyFinal: pyPrev: {
-            i3ipc = pyPrev.i3ipc.overridePythonAttrs (old: {
-              doCheck = false;
-            });
-          }
-        );
-      })
-      (final: prev: {
-        khanelivim = inputs.khanelivim.overrideAttrs (old: {
-          doCheck = false;
-          doInstallCheck = false;
-          dontCheck = true;
-          checkPhase = "echo 'Skipping khanelivim tests'";
-        });
-      })
-    ];
-  };
-in
-{
-
-  # Set pkgs for hydenix globally, any file that imports pkgs will use this
-  nixpkgs.pkgs = pkgs;
+}: {
   imports = [
     inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    inputs.hydenix.lib.nixOsModules
+    inputs.hydenix.nixosModules.default
     ./modules/system
-    # === GPU-specific configurations ===
 
-    /*
-      For drivers, we are leveraging nixos-hardware
-      Most common drivers are below, but you can see more options here: https://github.com/NixOS/nixos-hardware
-    */
-
-    #! EDIT THIS SECTION
-    # For NVIDIA setups
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia
-
-    # For AMD setups
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-amd
-
-    # === CPU-specific configurations ===
-    # For AMD CPUs
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-amd
-
-    # For Intel CPUs
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel
-
-    # === Other common modules ===
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc
     inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
@@ -86,18 +22,16 @@ in
     };
 
     backupFileExtension = "hm_backup";
-    users."zander" =
-      { ... }:
-      {
-        imports = [
-          inputs.hydenix.lib.homeModules
-          # Nix-index-database - for comma and command-not-found
-          inputs.nix-index-database.homeModules.nix-index
-          inputs.flatpaks.homeManagerModules.nix-flatpak
-          ./modules/hm/flatpak.nix
-          ./modules/hm
-        ];
-      };
+    users."zander" = {...}: {
+      imports = [
+        inputs.hydenix.homeModules.default
+        # Nix-index-database - for comma and command-not-found
+        inputs.nix-index-database.homeModules.nix-index
+        inputs.flatpaks.homeManagerModules.nix-flatpak
+        ./modules/hm/flatpak.nix
+        ./modules/hm
+      ];
+    };
   };
 
   # IMPORTANT: Customize the following values to match your preferences
@@ -120,10 +54,7 @@ in
     hardware.enable = true; # enable hardware module
     network.enable = true; # enable network module
     nix.enable = true; # enable nix module
-    sddm = {
-      enable = true; # enable sddm module
-      theme = "Corners";
-    };
+    sddm.enable = true; # enable sddm module
     system.enable = true; # enable system module
   };
 
@@ -145,7 +76,7 @@ in
     ];
     shell = pkgs.zsh;
   };
-  users.extraGroups.docker.members = [ "zander" ];
+  users.extraGroups.docker.members = ["zander"];
   nix.settings.trusted-users = [
     "root"
     "zander"
