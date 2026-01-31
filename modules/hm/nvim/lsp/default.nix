@@ -99,7 +99,21 @@
         dockerls.enable = true; # Docker
         docker_compose_language_service.enable = true; # Docker compose
         bashls.enable = true; # Bash
-        ltex.enable = true; # spell and grammar
+        ltex = {
+          enable = true;
+
+          settings = {
+            language = "en-GB";
+
+            dictionary = {
+              "en-GB" = [];
+            };
+
+            disabledRules = {
+              "en-US" = ["*"];
+            };
+          };
+        };
         texlab = {
           enable = true;
           settings = {
