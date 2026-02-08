@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   # Override the userprefs.conf that Hydenix manages with fcitx5 configuration
   home.file.".config/hypr/userprefs.conf" = lib.mkForce {
     text = ''
@@ -18,12 +17,14 @@
       env = SDL_IM_MODULE,fcitx
       env = GLFW_IM_MODULE,ibus
       env = INPUT_METHOD,fcitx
+
       input {
         kb_options = caps:escape_shifted_capslock, compose:rctrl
+        scroll_factor = 8
       }
+
       # Start fcitx5 daemon on Hyprland startup
       exec-once = fcitx5 -d
-      exec-once = gammastep-indicator &
       exec-once = qnotero &
       exec-once = flatpak run net.hovancik.Stretchly &
     '';
