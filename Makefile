@@ -251,3 +251,7 @@ vm: ## Build and run VM (if configured)
 	@printf "$(BLUE)🖥️  Building and starting VM...$(NC)"
 	nixos-rebuild build-vm --flake $(FLAKE_DIR)
 	./result/bin/run-*-vm
+hm-pepadev: ## Build standalone hm in profile/pepadev
+	@printf "$(BLUE) Home manager build in profile/pepadev"
+	cd ./profiles/pepadev && \
+	nix run home-manager/master -- switch --flake .#pepadev
