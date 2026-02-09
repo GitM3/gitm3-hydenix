@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -58,9 +59,9 @@ in {
     # kicad
     f3d
     meshlab
-    codex
     deskflow
     xclip
+    inputs.codex-cli-nix.packages.${pkgs.system}.default
 
     # utils / tools
     qbittorrent

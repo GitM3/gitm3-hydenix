@@ -33,6 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    codex-cli-nix.url = "github:sadjow/codex-cli-nix";
   };
 
   outputs = {...} @ inputs: let
