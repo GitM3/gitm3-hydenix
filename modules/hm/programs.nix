@@ -142,6 +142,7 @@ in {
     helvum
     rtaudio
     ffmpeg
+    audacity
     #zathura-pdf-mupdf
     ltex-ls
 
@@ -158,5 +159,6 @@ in {
     hadolint
     shfmt
     wf-recorder
+    ncdu
   ];
 }
