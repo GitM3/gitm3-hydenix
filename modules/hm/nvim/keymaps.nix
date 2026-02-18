@@ -207,11 +207,21 @@
       options.desc = "Go to declaration";
     }
 
+    # {
+    #   mode = "n";
+    #   key = "gr";
+    #   action = "<cmd>Telescope lsp_references<cr>";
+    #   options.desc = "References";
+    # }
     {
       mode = "n";
       key = "gr";
-      action = "<cmd>Telescope lsp_references<cr>";
-      options.desc = "References";
+      action = ''
+        function()
+          require("telescope.builtin").lsp_references()
+        end
+      '';
+      options.desc = "LSP References (Telescope)";
     }
 
     {
