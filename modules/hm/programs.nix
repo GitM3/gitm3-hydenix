@@ -84,7 +84,6 @@ in {
         clementine.ipod = true;
       };
     })
-    libreoffice-fresh
     pandoc
     voicevox
     voicevox-core
@@ -143,6 +142,7 @@ in {
     rtaudio
     ffmpeg
     audacity
+    mixxx
     #zathura-pdf-mupdf
     ltex-ls
 
