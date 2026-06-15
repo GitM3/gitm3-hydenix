@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   home.file.".config/zellij/config.kdl" = lib.mkForce {
     text = ''
       keybinds {
@@ -15,6 +14,6 @@
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;
-    attachExistingSession = true;
+    attachExistingSession = false;
   };
 }

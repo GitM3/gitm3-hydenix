@@ -20,7 +20,7 @@
 
       input {
         kb_options = caps:escape_shifted_capslock, compose:rctrl
-        scroll_factor = 8
+        scroll_factor = 2
       }
 
       # Start fcitx5 daemon on Hyprland startup

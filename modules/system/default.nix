@@ -3,15 +3,12 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./audio.nix
   ];
 
   networking = {
-
     #useDHCP = lib.mkDefault true;
     networkmanager.enable = true;
     networkmanager.wifi.macAddress = "preserve";
@@ -45,7 +42,7 @@
     nat = {
       enable = true;
       externalInterface = "wlp0s20f3";
-      internalInterfaces = [ "enp0s31f6" ];
+      internalInterfaces = ["enp0s31f6"];
     };
   };
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
@@ -53,7 +50,7 @@
     pam.services.sddm.enableGnomeKeyring = true;
     rtkit.enable = true;
   };
-  users.groups.plugdev = { };
+  users.groups.plugdev = {};
 
   services = {
     tailscale.enable = true;
@@ -118,12 +115,19 @@
     #wine stuff
     wineWowPackages.stable
     wine
-    (wine.override { wineBuild = "wine64"; })
+    (wine.override {wineBuild = "wine64";})
     wine64
     winetricks
     wineWowPackages.waylandFull
     wineasio
 
+    libreoffice-qt
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
   ];
   # programs.nix-ld.libraries = with pkgs; [
   #   stdenv.cc.cc.lib
@@ -152,6 +156,11 @@
     GOLDENDICT_FORCE_WAYLAND = 1;
   };
   hardware.enableRedistributableFirmware = true;
+  hardware = {
+    opentabletdriver.enable = true;
+    uinput.enable = true;
+  };
+  boot.kernelModules = ["uinput"];
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
@@ -161,5 +170,4 @@
   #   dockerCompat = true;
   #   dockerSocket.enable = true;
   # };
-
 }

@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -58,9 +59,9 @@ in {
     # kicad
     f3d
     meshlab
-    codex
     deskflow
     xclip
+    inputs.codex-cli-nix.packages.${pkgs.system}.default
 
     # utils / tools
     qbittorrent
@@ -83,7 +84,6 @@ in {
         clementine.ipod = true;
       };
     })
-    libreoffice-fresh
     pandoc
     voicevox
     voicevox-core
@@ -141,6 +141,8 @@ in {
     helvum
     rtaudio
     ffmpeg
+    audacity
+    mixxx
     #zathura-pdf-mupdf
     ltex-ls
 
@@ -157,5 +159,6 @@ in {
     hadolint
     shfmt
     wf-recorder
+    ncdu
   ];
 }
