@@ -160,5 +160,6 @@ in {
     shfmt
     wf-recorder
     ncdu
+    tmux
   ];
 }
